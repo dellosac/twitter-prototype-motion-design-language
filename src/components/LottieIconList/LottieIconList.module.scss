@@ -1,0 +1,12 @@
+@import '../../styles/variables.scss';
+
+.LottieIconList {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    > li {
+        margin: 0 $base-px;
+    }
+}

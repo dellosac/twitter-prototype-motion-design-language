@@ -1,22 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./styles/App.scss";
+import { LottieOptionsList, LottieIconList } from "./components";
+import Lotties from "./lotties";
 
 function App() {
+  const [lottieOption, setLottieOption] = useState("Ease");
+  const onOptionSelectCallback = (option) => {
+    setLottieOption(option);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <LottieOptionsList actionOption={lottieOption} onOptionSelectCallback={onOptionSelectCallback} />
+        <LottieIconList lotties={Lotties[lottieOption]} />
       </header>
     </div>
   );

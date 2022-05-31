@@ -1,0 +1,22 @@
+@import '../../styles/variables.scss';
+
+.lottieOptionsList {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $base-px;
+}
+
+.lottieOptionsListItem {
+    margin: 0 6px;
+    text-decoration: none;
+
+    &.active {
+        text-decoration: underline;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
