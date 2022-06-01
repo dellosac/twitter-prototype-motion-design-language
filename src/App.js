@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./styles/App.scss";
-import { LottieOptionsList, LottieIconList } from "./components";
+import { LottieOptionsList, SidebarNavigation } from "./components";
 import Lotties from "./lotties";
 
 function App() {
@@ -9,11 +9,15 @@ function App() {
     setLottieOption(option);
   }
 
+  const onNavigationChange = (newNavSlug) => {
+    console.log("navigation changed", newNavSlug);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <LottieOptionsList actionOption={lottieOption} onOptionSelectCallback={onOptionSelectCallback} />
-        <LottieIconList lotties={Lotties[lottieOption]} />
+        <SidebarNavigation onNavigationChange={onNavigationChange} lotties={Lotties[lottieOption]} />
       </header>
     </div>
   );

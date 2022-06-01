@@ -1,0 +1,13 @@
+.sidebarListItem {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.lottieIcon {
+    background-color: white;
+    max-width: 48px;
+}

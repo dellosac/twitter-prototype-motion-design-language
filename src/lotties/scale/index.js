@@ -13,7 +13,7 @@ import Notification_Hover from "./Notification_Hover.json";
 import Profile_Active from "./Profile_Active.json";
 import Profile_Hover from "./Profile_Hover.json";
 
-export default {
+const Scale = {
   Bookmark: {
     hover: Bookmark_Hover,
     active: Bookmark_Active,
@@ -43,3 +43,5 @@ export default {
     active: Profile_Active,
   },
 };
+
+export default Scale;

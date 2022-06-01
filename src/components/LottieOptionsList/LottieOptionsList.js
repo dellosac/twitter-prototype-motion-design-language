@@ -6,14 +6,24 @@ const LottieOptionsList = ({ actionOption, onOptionSelectCallback }) => {
 
   return (
     <ul className={styles.lottieOptionsList}>
-      {options.map((option) => {
+      {options.map((option, index) => {
         const isActive = actionOption === option;
         const onClick = (e) => {
-            e.preventDefault();
-            onOptionSelectCallback(option);
-        }
+          e.preventDefault();
+          onOptionSelectCallback(option);
+        };
 
-        return <li className={`${styles.lottieOptionsListItem} ${isActive ? styles.active : null}`} onClick={onClick}>{option}</li>;
+        return (
+          <li
+            key={`lol-${index}`}
+            className={`${styles.lottieOptionsListItem} ${
+              isActive ? styles.active : null
+            }`}
+            onClick={onClick}
+          >
+            {option}
+          </li>
+        );
       })}
     </ul>
   );

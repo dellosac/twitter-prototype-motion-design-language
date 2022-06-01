@@ -1,5 +1,5 @@
-import LottieIcon from "./LottieIcon";
-import LottieIconList from "./LottieIconList";
+import SidebarNavigationItem from "./SidebarNavigationItem";
+import SidebarNavigation from "./SidebarNavigation";
 import LottieOptionsList from "./LottieOptionsList";
 
-export { LottieIcon, LottieIconList, LottieOptionsList };
+export { SidebarNavigationItem, SidebarNavigation, LottieOptionsList };
