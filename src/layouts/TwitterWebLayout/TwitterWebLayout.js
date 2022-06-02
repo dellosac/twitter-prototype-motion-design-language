@@ -1,29 +1,27 @@
-import { useState } from "react";
-import { LottieOptionsList, SidebarNavigation } from "../../components";
-import { HomePage } from "../../pages";
+import { SidebarNavigation } from "../../components";
+import { Outlet } from "react-router-dom";
 import Lotties from "../../lotties";
 
 import styles from "./TwitterWebLayout.module.scss";
 
-const TwitterWebLayout = () => {
-    const [lottieOption, setLottieOption] = useState("Ease");
-    const onOptionSelectCallback = (option) => {
-      setLottieOption(option);
-    }
-  
-    const onNavigationChange = (newNavSlug) => {
-      console.log("navigation changed", newNavSlug);
-    }
+const TwitterWebLayout = ({ activeLottieOption }) => {
+  const onNavigationChange = (newNavSlug) => {
+    console.log("navigation changed", newNavSlug);
+  };
 
-    return (<main className={styles.layout}>
+  return (
+    <main className={styles.layout}>
       <nav className={styles.navigation}>
-        <LottieOptionsList actionOption={lottieOption} onOptionSelectCallback={onOptionSelectCallback} />
-        <SidebarNavigation onNavigationChange={onNavigationChange} lotties={Lotties[lottieOption]} />
+        <SidebarNavigation
+          onNavigationChange={onNavigationChange}
+          lotties={Lotties[activeLottieOption]}
+        />
       </nav>
       <article className={styles.pages}>
-        <HomePage />
+        <Outlet />
       </article>
-    </main>)
-}
+    </main>
+  );
+};
 
 export default TwitterWebLayout;

@@ -26,7 +26,7 @@ const Perspective = {
     hover: Home_Hover,
     active: Home_Active,
   },
-  List: {
+  Lists: {
     hover: List_Hover,
     active: List_Active,
   },
@@ -34,7 +34,7 @@ const Perspective = {
     hover: Messages_Hover,
     active: Messages_Active,
   },
-  Notification: {
+  Notifications: {
     hover: Notification_Hover,
     active: Notification_Active,
   },
