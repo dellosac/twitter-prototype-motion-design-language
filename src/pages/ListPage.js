@@ -1,8 +1,12 @@
-const ListPage = () => {
+import Page from "./Page";
+
+const ListPage = ({ pageLoaderConfig, slug }) => {
   return (
-    <article>
-      <h1>ListPage</h1>
-    </article>
+    <Page slug={slug} pageLoaderConfig={pageLoaderConfig}>
+      <article>
+        <h1>ListPage</h1>
+      </article>
+    </Page>
   );
 };
 

@@ -1,8 +1,12 @@
-const BookmarkPage = () => {
+import Page from "./Page";
+
+const BookmarkPage = ({ pageLoaderConfig, slug }) => {
   return (
-    <article>
-      <h1>BookmarkPage</h1>
-    </article>
+    <Page slug={slug} pageLoaderConfig={pageLoaderConfig}>
+      <article>
+        <h1>BookmarkPage</h1>
+      </article>
+    </Page>
   );
 };
 

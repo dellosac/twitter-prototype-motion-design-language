@@ -1,8 +1,12 @@
-const MessagesPage = () => {
+import Page from "./Page";
+
+const MessagesPage = ({ pageLoaderConfig, slug }) => {
   return (
-    <article>
-      <h1>MessagesPage</h1>
-    </article>
+    <Page slug={slug} pageLoaderConfig={pageLoaderConfig}>
+      <article>
+        <h1>MessagesPage</h1>
+      </article>
+    </Page>
   );
 };
 

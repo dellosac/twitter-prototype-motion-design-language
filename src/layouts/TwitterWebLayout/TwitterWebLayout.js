@@ -13,8 +13,10 @@ const TwitterWebLayout = ({ activeLottieOption }) => {
     <main className={styles.layout}>
       <nav className={styles.navigation}>
         <SidebarNavigation
+          activeItem={activeLottieOption}
           onNavigationChange={onNavigationChange}
           lotties={Lotties[activeLottieOption]}
+          animateIcons={(activeLottieOption !== "None")}
         />
       </nav>
       <article className={styles.pages}>

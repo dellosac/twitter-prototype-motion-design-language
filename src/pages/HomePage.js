@@ -1,8 +1,12 @@
-const HomePage = () => {
+import Page from "./Page";
+
+const HomePage = ({ pageLoaderConfig, slug }) => {
   return (
-    <article>
-      <h1>HomePage</h1>
-    </article>
+    <Page slug={slug} pageLoaderConfig={pageLoaderConfig}>
+      <article>
+        <h1>HomePage</h1>
+      </article>
+    </Page>
   );
 };
 

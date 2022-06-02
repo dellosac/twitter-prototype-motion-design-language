@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { useResolvedPath, useMatch, Link } from "react-router-dom";
 import Lottie from "lottie-react";
 
 import styles from "./SidebarNavigationItem.module.scss";
@@ -8,40 +8,45 @@ const SidebarNavigationItem = ({
   name,
   hoverAnimation,
   activeAnimation,
-  isActive = false,
-  onClick,
+  animateIcon,
 }) => {
   const lottieRef = useRef();
 
-  const iconOnClick = (e) => {
-    e.preventDefault();
-    if (typeof onClick === "function") {
-      onClick(e, name);
-    }
-  };
+  const URL = name === "Home" ? "/" : `/${name}`;
+
+  let resolved = useResolvedPath(URL);
+  let match = useMatch({ path: resolved.pathname, end: true });
 
   const onMouseEnter = (e) => {
     e.preventDefault();
-    lottieRef.current.goToAndPlay(0, true);
-  };
+    if (!animateIcon) {
+      return;
+    }
 
-  const URL = (name === "Home") ? '/' : `/${name}`;
+    if (!match) {
+      lottieRef.current.goToAndPlay(0, true);
+    } else {
+      lottieRef.current.goToAndPlay(0, true);
+    }
+  };
 
   return (
     <li
-      className={`${styles.sidebarListItem} headline1`}
+      className={styles.sidebarListItem}
       onMouseEnter={onMouseEnter}
-      onClick={iconOnClick}
     >
       <Link to={URL}>
-        <Lottie
-          autoplay={isActive}
-          className={styles.lottieIcon}
-          lottieRef={lottieRef}
-          loop={false}
-          animationData={isActive ? activeAnimation : hoverAnimation}
-        />
-        <span>{name}</span>
+        {animateIcon ? (
+          <Lottie
+            autoplay={false}
+            className={styles.lottieIcon}
+            lottieRef={lottieRef}
+            loop={false}
+            animationData={match ? activeAnimation : hoverAnimation}
+          />
+        ) : null}
+
+        <span className="headline1">{name}</span>
       </Link>
     </li>
   );

@@ -1,8 +1,12 @@
-const NotificationPage = () => {
+import Page from "./Page";
+
+const NotificationPage = ({ pageLoaderConfig, slug }) => {
   return (
-    <article>
-      <h1>NotificationPage</h1>
-    </article>
+    <Page slug={slug} pageLoaderConfig={pageLoaderConfig}>
+      <article>
+        <h1>NotificationPage</h1>
+      </article>
+    </Page>
   );
 };
 
