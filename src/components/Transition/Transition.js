@@ -5,6 +5,8 @@ const Transition = ({
   isActive,
   entranceDuration = 0.3,
   exitDuration = 0.1,
+  entranceDelay = 0.2,
+  exitDelay = 0,
   children,
 }) => {
   return (
@@ -13,7 +15,7 @@ const Transition = ({
       initial="initial"
       animate="animate"
       exit="exit"
-      transition={{ duration: isActive ? entranceDuration : exitDuration }}
+      transition={{ duration: isActive ? entranceDuration : exitDuration, delay: isActive ? entranceDelay : exitDelay }}
     >
       {children}
     </motion.div>
