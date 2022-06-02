@@ -29,7 +29,7 @@ const SidebarNavigationItem = ({
 
   return (
     <li
-      className={styles.sidebarListItem}
+      className={`${styles.sidebarListItem} headline1`}
       onMouseEnter={onMouseEnter}
       onClick={iconOnClick}
     >

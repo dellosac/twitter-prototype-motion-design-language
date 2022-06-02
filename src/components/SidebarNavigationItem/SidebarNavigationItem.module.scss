@@ -1,9 +1,7 @@
 .sidebarListItem {
-    display: flex;
-    align-items: center;
-
-    &:hover {
-        cursor: pointer;
+    > a {
+        display: flex;
+        align-items: center;
     }
 }
 

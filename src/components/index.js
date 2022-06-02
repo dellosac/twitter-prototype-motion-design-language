@@ -1,5 +1,5 @@
 import SidebarNavigationItem from "./SidebarNavigationItem";
 import SidebarNavigation from "./SidebarNavigation";
-import LottieOptionsList from "./LottieOptionsList";
+import TestOptionsList from "./TestOptionsList";
 
-export { SidebarNavigationItem, SidebarNavigation, LottieOptionsList };
+export { SidebarNavigationItem, SidebarNavigation, TestOptionsList };

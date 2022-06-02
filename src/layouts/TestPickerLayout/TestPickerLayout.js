@@ -1,26 +1,45 @@
-import { LottieOptionsList } from "../../components";
+import { TestOptionsList } from "../../components";
 import { Link } from "react-router-dom";
+
+import CONFIG from "../../config";
 
 const TestPickerLayout = ({
   activePageLoaderOption,
   activeLottieOption,
   onLottieSelectCallback,
+  onPageLoaderSelectCallback
 }) => {
-  const onOptionSelectCallback = (option) => {
-    
+
+  const onLottieOptionSelectCallback = (option) => {
     if (typeof onLottieSelectCallback === "function") {
       onLottieSelectCallback(option);
     }
   };
 
+  const onPagerLoaderOptionSelectCallback = (option) => {
+    if (typeof onLottieSelectCallback === "function") {
+      onPageLoaderSelectCallback(option);
+    }
+  };
+
+  const lottieOptions = Object.keys(CONFIG.LOTTIE_OPTIONS);
+  const pageLoaderOptions = Object.keys(CONFIG.PAGE_LOADER_OPTIONS)
+
   return (
     <main>
       Pick a Test
-      <LottieOptionsList
+      <TestOptionsList
         actionOption={activeLottieOption}
-        onOptionSelectCallback={onOptionSelectCallback}
+        options={lottieOptions}
+        onOptionSelectCallback={onLottieOptionSelectCallback}
       />
-      <Link to="/">Go to the home page</Link>
+      <TestOptionsList
+        actionOption={activePageLoaderOption}
+        options={pageLoaderOptions}
+        onOptionSelectCallback={onPagerLoaderOptionSelectCallback}
+      />
+
+      <Link to="/">Submit Test Changes</Link>
     </main>
   );
 };

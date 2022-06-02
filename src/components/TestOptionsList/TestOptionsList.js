@@ -1,11 +1,8 @@
-import Lotties from "../../lotties";
-import styles from "./LottieOptionsList.module.scss";
+import styles from "./TestOptionsList.module.scss";
 
-const LottieOptionsList = ({ actionOption, onOptionSelectCallback }) => {
-  const options = Object.keys(Lotties);
-
+const TestOptionsList = ({ actionOption, options, onOptionSelectCallback }) => {
   return (
-    <ul className={styles.lottieOptionsList}>
+    <ul className={styles.TestOptionsList}>
       {options.map((option, index) => {
         const isActive = actionOption === option;
         const onClick = (e) => {
@@ -16,7 +13,7 @@ const LottieOptionsList = ({ actionOption, onOptionSelectCallback }) => {
         return (
           <li
             key={`lol-${index}`}
-            className={`${styles.lottieOptionsListItem} ${
+            className={`${styles.TestOptionsListItem} ${
               isActive ? styles.active : null
             }`}
             onClick={onClick}
@@ -29,4 +26,4 @@ const LottieOptionsList = ({ actionOption, onOptionSelectCallback }) => {
   );
 };
 
-export default LottieOptionsList;
+export default TestOptionsList;

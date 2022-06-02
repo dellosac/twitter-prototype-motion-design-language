@@ -22,6 +22,10 @@ export default function App() {
     setLottieOption(option);
   }
 
+  const onPageLoaderSelectCallback = (option) => {
+    setPageLoaderOption(option);
+  }
+
   return (
     <Routes>
       <Route
@@ -31,6 +35,7 @@ export default function App() {
             activeLottieOption={activeLottieOption}
             activePageLoaderOption={activePageLoaderOption}
             onLottieSelectCallback={onLottieSelectCallback}
+            onPageLoaderSelectCallback={onPageLoaderSelectCallback}
           />
         }
       />
