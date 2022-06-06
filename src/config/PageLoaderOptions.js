@@ -1,7 +1,7 @@
 const PAGE_LOADER_OPTIONS = {
   Position: "Position",
   Scale: "Scale",
-  Skeleton: "Skeleton",
+  Ghost: "Ghost",
   None: "None",
 };
 

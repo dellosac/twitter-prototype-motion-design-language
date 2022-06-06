@@ -9,16 +9,17 @@ const TestOptionsList = ({ actionOption, options, onOptionSelectCallback }) => {
           e.preventDefault();
           onOptionSelectCallback(option);
         };
+        const firstLetter = option.split('')[0];
 
         return (
           <li
             key={`lol-${index}`}
-            className={`${styles.TestOptionsListItem} ${
+            className={`title3 ${styles.TestOptionsListItem} ${
               isActive ? styles.active : null
             }`}
             onClick={onClick}
           >
-            {option}
+            {firstLetter}
           </li>
         );
       })}
