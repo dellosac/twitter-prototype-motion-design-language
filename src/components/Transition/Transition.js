@@ -15,7 +15,10 @@ const Transition = ({
       initial="initial"
       animate="animate"
       exit="exit"
-      transition={{ duration: isActive ? entranceDuration : exitDuration, delay: isActive ? entranceDelay : exitDelay }}
+      transition={{
+        duration: isActive ? entranceDuration : exitDuration,
+        delay: isActive ? entranceDelay : exitDelay,
+      }}
     >
       {children}
     </motion.div>
