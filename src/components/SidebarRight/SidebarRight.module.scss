@@ -4,6 +4,51 @@
     width: 380px;
 
     .wrapper {
+        padding: 9px 0 0 20px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
         width: 360px;
+
+        .searchBar, .whatsHappeningModule, .whoToFollowModule {
+            background: #EFF3F4;
+        }
+
+        .searchBar {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            border-radius: 100px;
+            cursor: pointer;
+
+            .searchWrapper {
+                display: flex;
+                align-items: center;
+
+                .searchIcon {
+                    width: 13px;
+                }
+                
+                .searchLabel {
+                    padding-left: 10px;
+                    color: #536471;
+                }
+            }
+        }
+
+        .whatsHappeningModule, .whoToFollowModule {
+            border-radius: 12px;
+            color: #0F1419;
+        }
+
+        .whatsHappeningModule {
+            height: 656px;
+        }
+
+        .whoToFollowModule {
+            height: 332px;
+        }
     }
 }
