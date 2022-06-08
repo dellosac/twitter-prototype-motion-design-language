@@ -7,11 +7,11 @@ import NotificationPage from "./NotificationPage";
 import ProfilePage from "./ProfilePage";
 
 export {
-  BookmarkPage,
-  ExplorePage,
   HomePage,
-  ListPage,
-  MessagePage,
+  ExplorePage,
   NotificationPage,
+  MessagePage,
+  BookmarkPage,
+  ListPage,
   ProfilePage,
 };

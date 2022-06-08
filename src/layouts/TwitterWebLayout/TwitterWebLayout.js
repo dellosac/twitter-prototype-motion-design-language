@@ -1,4 +1,4 @@
-import { SidebarNavigation } from "../../components";
+import { SidebarNavigation, SidebarRight } from "../../components";
 import { Outlet } from "react-router-dom";
 import Lotties from "../../lotties";
 
@@ -22,6 +22,7 @@ const TwitterWebLayout = ({ activeLottieOption }) => {
       <article className={styles.pages}>
         <Outlet />
       </article>
+      <SidebarRight />
     </main>
   );
 };

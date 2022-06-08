@@ -14,34 +14,34 @@ import Profile_Active from "./Profile_Active.json";
 import Profile_Hover from "./Profile_Hover.json";
 
 const Scale = {
-  Bookmark: {
-    hover: Bookmark_Hover,
-    active: Bookmark_Active,
+  Home: {
+    hover: Home_Hover,
+    active: Home_Active,
   },
   Explore: {
     hover: Explore_Hover,
     active: Explore_Active,
   },
-  Home: {
-    hover: Home_Hover,
-    active: Home_Active,
-  },
-  Lists: {
-    hover: List_Hover,
-    active: List_Active,
+  Notifications: {
+    hover: Notification_Hover,
+    active: Notification_Active,
   },
   Messages: {
     hover: Messages_Hover,
     active: Messages_Active,
   },
-  Notifications: {
-    hover: Notification_Hover,
-    active: Notification_Active,
+  Bookmarks: {
+    hover: Bookmark_Hover,
+    active: Bookmark_Active,
+  },
+  Lists: {
+    hover: List_Hover,
+    active: List_Active,
   },
   Profile: {
     hover: Profile_Hover,
     active: Profile_Active,
-  },
+  }
 };
 
 export default Scale;

@@ -6,12 +6,12 @@ import styles from "./SidebarNavigationItem.module.scss";
 
 const SidebarNavigationItem = ({
   name,
+  config,
   hoverAnimation,
   activeAnimation,
   animateIcon,
 }) => {
   const lottieRef = useRef();
-
   const URL = name === "Home" ? "/" : `/${name}`;
 
   let resolved = useResolvedPath(URL);
@@ -31,11 +31,8 @@ const SidebarNavigationItem = ({
   };
 
   return (
-    <li
-      className={styles.sidebarListItem}
-      onMouseEnter={onMouseEnter}
-    >
-      <Link to={URL}>
+    <li className={styles.sidebarListItem} onMouseEnter={onMouseEnter}>
+      <Link className={styles.itemContainer} to={URL}>
         {animateIcon ? (
           <Lottie
             autoplay={false}
@@ -43,10 +40,9 @@ const SidebarNavigationItem = ({
             lottieRef={lottieRef}
             loop={false}
             animationData={match ? activeAnimation : hoverAnimation}
-          />
+             />
         ) : null}
-
-        <span className="headline1">{name}</span>
+        <span className={`headline1 ${styles.itemLabel}`}>{name}</span>
       </Link>
     </li>
   );

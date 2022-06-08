@@ -65,21 +65,22 @@ export default function App() {
               <HomePage pageLoaderConfig={currentPageLoaderConfig} slug={"/"} />
             }
           />
-          <Route
-            path="bookmark"
-            element={
-              <BookmarkPage
-                pageLoaderConfig={currentPageLoaderConfig}
-                slug={"/bookmark"}
-              />
-            }
-          />
+
           <Route
             path="explore"
             element={
               <ExplorePage
                 pageLoaderConfig={currentPageLoaderConfig}
                 slug={"/explore"}
+              />
+            }
+          />
+          <Route
+            path="bookmark"
+            element={
+              <BookmarkPage
+                pageLoaderConfig={currentPageLoaderConfig}
+                slug={"/bookmark"}
               />
             }
           />
