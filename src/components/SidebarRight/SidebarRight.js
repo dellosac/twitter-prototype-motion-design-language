@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import styles from "./SidebarRight.module.scss";
 import SearchIcon from "../../images/search-icon.png";
 
