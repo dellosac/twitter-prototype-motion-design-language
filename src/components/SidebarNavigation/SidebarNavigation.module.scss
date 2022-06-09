@@ -2,6 +2,7 @@
 @import '../../styles/easings.scss';
 
 .Sidebar {
+    min-width: 256px;
     .logo {
         margin-top: 2px;
         display: flex;

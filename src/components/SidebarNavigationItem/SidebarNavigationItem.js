@@ -31,7 +31,7 @@ const SidebarNavigationItem = ({
   };
 
   return (
-    <li className={styles.sidebarListItem} onMouseEnter={onMouseEnter}>
+    <li className={`${match ? styles.active : null} ${styles.sidebarListItem}`} onMouseEnter={onMouseEnter}>
       <Link className={styles.itemContainer} to={URL}>
         {animateIcon ? (
           <Lottie
