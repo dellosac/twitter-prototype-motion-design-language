@@ -14,6 +14,23 @@ const SidebarRight = () => {
           </div>
           <div className={styles.whatsHappeningModule}>
             <h1 className="headline1">What's happening</h1>
+            {/* <ul className={styles.SidebarNavigation}>
+              {Object.keys(NavConfig).map((navItem, index) => {
+                const isActive = activeItem === navItem;
+
+                return (
+                  <SidebarNavigationItem
+                    key={`lil-${index}`}
+                    name={navItem}
+                    config={NavConfig[navItem]}
+                    hoverAnimation={lotties[navItem].hover}
+                    activeAnimation={lotties[navItem].active}
+                    isActive={isActive}
+                    animateIcon={animateIcons}
+                  />
+                );
+              })}
+            </ul> */}
           </div>
           <div className={styles.whoToFollowModule}>
             <h1 className="headline1">Who to follow</h1>
