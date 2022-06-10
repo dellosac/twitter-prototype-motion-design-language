@@ -2,6 +2,7 @@ import Page from "./Page";
 import styles from "./HomePage.module.scss";
 import OrderCTA from "../images/order-cta.png";
 import TweetOptions from '../images/tweet-options.png';
+import { StaticItem } from "../components";
 
 const HomePage = ({ pageLoaderConfig, slug }) => {
   return (
@@ -22,6 +23,16 @@ const HomePage = ({ pageLoaderConfig, slug }) => {
             </div>
           </div>
         </div>
+        <ul className={styles.tweetsWrapper}>
+          {[...Array(4)].map((e, i) => {
+            return (
+              <StaticItem 
+                key={`lil-${i}`}
+                src={'./images/pages/home/tweet-' + (i + 1)} 
+              />
+            );
+          })}
+        </ul>
       </article>
     </Page>
   );

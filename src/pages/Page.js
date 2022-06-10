@@ -9,9 +9,9 @@ const Page = ({ pageLoaderConfig, slug, children }) => {
 
   return (
     <Fragment>
-      <Transition isActive={match} animationConfiguration={pageLoaderConfig}>
+      {/* <Transition isActive={match} animationConfiguration={pageLoaderConfig}> */}
         {children}
-      </Transition>
+      {/* </Transition> */}
     </Fragment>
   );
 };

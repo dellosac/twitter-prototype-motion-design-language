@@ -57,7 +57,7 @@ export default function App() {
 
         <Route
           path="/"
-          element={<TwitterWebLayout activeLottieOption={activeLottieOption} />}
+          element={<TwitterWebLayout pageLoaderConfig={currentPageLoaderConfig} activeLottieOption={activeLottieOption} />}
         >
           <Route
             index

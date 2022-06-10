@@ -1,5 +1,5 @@
 const COMPONENT_ANIMATIONS = {
-  SidebarNavigation: {
+  SidebarLeft: {
     logo: {
       translateY: false
     },
@@ -31,6 +31,9 @@ const COMPONENT_ANIMATIONS = {
   Home: {
     tweetComposer: {
       opacity: false
+    },
+    tweetsWrapper: {
+      children: true
     }
   }
 };

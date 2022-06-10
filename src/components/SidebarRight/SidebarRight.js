@@ -1,7 +1,8 @@
 import styles from "./SidebarRight.module.scss";
+import StaticItem from "../StaticItem";
 import SearchIcon from "../../images/search-icon.png";
 
-const SidebarRight = () => {
+const SidebarRight = ({ loaderStyle }) => {
 
   return (
       <div className={styles.SidebarRight}>
@@ -14,15 +15,16 @@ const SidebarRight = () => {
           </div>
           <div className={styles.whatsHappeningModule}>
             <h1 className="headline1">What's happening</h1>
-            {/* <ul className={styles.whatsHappeningWrapper}>
-              {Object.keys(NavConfig).map((navItem, index) => {
-                const isActive = activeItem === navItem;
-
+            <ul className={styles.whatsHappeningWrapper}>
+              {[...Array(5)].map((e, i) => {
                 return (
-                  <SidebarNavigationItem />
+                  <StaticItem 
+                    key={`lil-${i}`}
+                    src={'./images/sidebar-right/whats-happening/item-' + (i + 1)} 
+                    />
                 );
               })}
-            </ul> */}
+            </ul>
             <h4 className={`body ${styles.showMoreLabel}`}>Show more</h4> 
           </div>
           <div className={styles.whoToFollowModule}>

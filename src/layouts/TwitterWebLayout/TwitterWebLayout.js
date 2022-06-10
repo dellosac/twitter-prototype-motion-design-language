@@ -1,10 +1,10 @@
-import { SidebarNavigation, SidebarRight } from "../../components";
+import { SidebarLeft, SidebarRight } from "../../components";
 import { Outlet } from "react-router-dom";
 import Lotties from "../../lotties";
 
 import styles from "./TwitterWebLayout.module.scss";
 
-const TwitterWebLayout = ({ activeLottieOption }) => {
+const TwitterWebLayout = ({ pageLoaderConfig, activeLottieOption }) => {
   const onNavigationChange = (newNavSlug) => {
     console.log("navigation changed", newNavSlug);
   };
@@ -12,7 +12,8 @@ const TwitterWebLayout = ({ activeLottieOption }) => {
   return (
     <main className={styles.layout}>
       <nav className={styles.navigation}>
-        <SidebarNavigation
+        <SidebarLeft
+          loaderStyle={pageLoaderConfig}
           activeItem={activeLottieOption}
           onNavigationChange={onNavigationChange}
           lotties={Lotties[activeLottieOption]}
@@ -22,7 +23,7 @@ const TwitterWebLayout = ({ activeLottieOption }) => {
       <article className={styles.pages}>
         <Outlet />
       </article>
-      <SidebarRight />
+      <SidebarRight loaderStyle={pageLoaderConfig} />
     </main>
   );
 };
