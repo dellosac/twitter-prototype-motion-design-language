@@ -27,6 +27,8 @@ const TestPickerLayout = ({
   const lottieOptions = Object.keys(CONFIG.LOTTIE_OPTIONS);
   const pageLoaderOptions = Object.keys(CONFIG.PAGE_LOADER_OPTIONS);
 
+  sessionStorage.setItem("show_larry", 1);
+
   return (
     <TestPickerPageTransition entranceDelay={0} exitDelay={0.2}>
       <main className={styles.wrapper}>

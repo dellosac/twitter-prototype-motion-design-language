@@ -40,6 +40,9 @@ export default function App() {
 
   const currentPageLoaderConfig = PageLoaderConfigs[activePageLoaderOption];
 
+  const showLarryEntrance = parseInt(sessionStorage.getItem("show_larry"));
+  sessionStorage.setItem("show_larry", 0);
+  
   return (
     <AnimatePresence exitBeforeEnter>
       <Routes location={location} key={location.pathname}>
@@ -57,7 +60,7 @@ export default function App() {
 
         <Route
           path="/"
-          element={<TwitterWebLayout activeLottieOption={activeLottieOption} />}
+          element={<TwitterWebLayout showLarryEntrance={showLarryEntrance} activeLottieOption={activeLottieOption} />}
         >
           <Route
             index
