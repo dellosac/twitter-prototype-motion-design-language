@@ -16,7 +16,7 @@ const TwitterWebLayout = ({ activeLottieOption }) => {
           activeItem={activeLottieOption}
           onNavigationChange={onNavigationChange}
           lotties={Lotties[activeLottieOption]}
-          animateIcons={(activeLottieOption !== "None")}
+          animateIcons={activeLottieOption !== "None"}
         />
       </nav>
       <article className={styles.pages}>
