@@ -1,18 +1,22 @@
 .sidebarListItem {
+    &.active .itemLabel {
+        font-weight: 700;
+    }
+
     > a {
         display: flex;
-        // align-items: center;
+        align-items: center;
         text-decoration: none;
         color: #0F1419;
-        padding: 12px;
 
         .lottieIcon {
-            background-color: white;
-            max-width: 31px;
+            padding: 12px 12px 12px 6px;
+            max-width: 36px;            
         }
 
         .itemLabel {
-            margin: 0px 16px 0px 20px;
+            margin: 0px 16px 0px 0px;
+            font-weight: 500;
         }
     }
 }

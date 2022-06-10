@@ -32,9 +32,6 @@ const TestPickerLayout = ({
       <main className={styles.wrapper}>
         <article className={styles.content_wrapper}>
           <TestPickerTransition entranceDelay={0}>
-            <h1 className={`${styles.title} title1`}>Select Test Variables</h1>
-          </TestPickerTransition>
-          <TestPickerTransition entranceDelay={0.045}>
             <section className={styles.contentContainer}>
               <label className={`title4 ${styles.label}`}>Parameter A</label>
               <TestOptionsList
@@ -44,7 +41,7 @@ const TestPickerLayout = ({
               />
             </section>
           </TestPickerTransition>
-          <TestPickerTransition entranceDelay={0.2}>
+          <TestPickerTransition entranceDelay={0.045}>
             <section className={styles.contentContainer}>
               <label className={`title4 ${styles.label}`}>Parameter B</label>
               <TestOptionsList
@@ -54,7 +51,7 @@ const TestPickerLayout = ({
               />
             </section>
           </TestPickerTransition>
-          <TestPickerTransition entranceDelay={0.25}>
+          <TestPickerTransition entranceDelay={0.2}>
             <Link className={styles.submitLink} to="/">
               Submit Test Changes
             </Link>
