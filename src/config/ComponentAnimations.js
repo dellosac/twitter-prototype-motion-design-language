@@ -18,11 +18,13 @@ const COMPONENT_ANIMATIONS = {
       translateY: false
     },
     whatsHappening: {
-      children: 1,
+      children: true,
+      offset: 1,
       translateY: false
     },
     whoToFollow: {
-      children: 1,
+      children: true,
+      offset: 1,
       translateY: false
     }
   },
