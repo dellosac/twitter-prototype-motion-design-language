@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route, Link, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 import {
@@ -11,9 +11,9 @@ import {
   NotificationPage,
   ProfilePage,
 } from "./pages";
-import { AuthProviderWrapper, RequireAuth } from "./authprovider";
+import { AuthProviderWrapper, useAuth } from "./authprovider";
 
-import { TestPickerLayout, TwitterWebLayout } from "./layouts";
+import { LoginLayout, TestPickerLayout, TwitterWebLayout } from "./layouts";
 import CONFIG from "./config";
 import PageLoaderConfigs from "./pageloaders";
 
@@ -46,8 +46,8 @@ export default function App() {
   sessionStorage.setItem("show_larry", 0);
 
   return (
-    <AuthProviderWrapper>
-      <AnimatePresence exitBeforeEnter>
+    <AnimatePresence exitBeforeEnter>
+      <AuthProviderWrapper>
         <Routes location={location} key={location.pathname}>
           <Route
             path="/test"
@@ -60,6 +60,7 @@ export default function App() {
               />
             }
           />
+          <Route path="/login" element={<LoginLayout />} />
 
           <Route
             path="/"
@@ -143,8 +144,8 @@ export default function App() {
             <Route path="*" element={<NoMatch />} />
           </Route>
         </Routes>
-      </AnimatePresence>
-    </AuthProviderWrapper>
+      </AuthProviderWrapper>
+    </AnimatePresence>
   );
 }
 
@@ -157,4 +158,23 @@ function NoMatch() {
       </p>
     </div>
   );
+}
+
+function RequireAuth({ children }) {
+  let auth = useAuth();
+  let location = useLocation();
+
+  if (
+    !auth.isAuthenticated ||
+    auth.isAuthenticated === undefined ||
+    auth.isAuthenticated === null
+  ) {
+    // Redirect them to the /login page, but save the current location they were
+    // trying to go to when they were redirected. This allows us to send them
+    // along to that page after they login, which is a nicer user experience
+    // than dropping them off on the home page.
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  return children;
 }
