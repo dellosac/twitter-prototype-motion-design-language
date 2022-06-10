@@ -1,12 +1,15 @@
 @import "../../styles/variables.scss";
 
 .wrapper {
-  background-color:hsla(214,100%,26%,1);
-  background-image:
-  radial-gradient(at 72% 25%, hsla(214,100%,26%,1) 0px, transparent 50%),
-  radial-gradient(at 72% 72%, hsla(204,87%,52%,1) 0px, transparent 50%),
-  radial-gradient(at 6% 20%, hsla(182,70%,69%,1) 0px, transparent 50%),
-  radial-gradient(at 96% 10%, hsla(192,100%,87%,1) 0px, transparent 50%);
+  background-color: hsla(214, 100%, 26%, 1);
+  background-image: radial-gradient(
+      at 72% 25%,
+      hsla(214, 100%, 26%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 72% 72%, hsla(204, 87%, 52%, 1) 0px, transparent 50%),
+    radial-gradient(at 6% 20%, hsla(182, 70%, 69%, 1) 0px, transparent 50%),
+    radial-gradient(at 96% 10%, hsla(192, 100%, 87%, 1) 0px, transparent 50%);
   background-size: 200% 200%;
   animation: gradient 15s ease infinite;
   display: flex;
@@ -24,44 +27,8 @@
   width: clamp(400px, 80vw, 800px);
 }
 
-.contentContainer {
-  background-color: white;
-  padding: 16px 32px;
-  margin: 16px 0px;
-  border-radius: 16px;
-  box-shadow: 0 0 15px rgba(101, 119, 134, 0.2),
-    0 0 3px 1px rgba(101, 119, 134, 0.15);
-}
-
 .formInputWrapper {
   padding: 16px;
-}
-
-.label {
-  display: inline-block;
-  padding: 8px 0;
-  font-weight: 700;
-}
-
-.submitLink {
-  border-color: cadetblue;
-  background-color: rgb(15, 20, 25);
-  padding: 16px;
-  color: white;
-  border-radius: 16px;
-  box-shadow: 0 0 15px rgba(101, 119, 134, 0.2),
-    0 0 3px 1px rgba(101, 119, 134, 0.15);
-  font-weight: 600;
-  text-decoration: none;
-  margin: 16px 0;
-  transition: background-color 150ms ease-in;
-
-  float: right;
-
-  &:hover {
-    background-color: rgb(39, 44, 48);
-  }
-  
 }
 
 @keyframes gradient {

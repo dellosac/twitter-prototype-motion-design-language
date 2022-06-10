@@ -5,6 +5,7 @@ import TweetOptions from '../images/tweet-options.png';
 import { StaticItem } from "../components";
 
 const HomePage = ({ pageLoaderConfig, slug }) => {
+  
   return (
     <Page slug={slug} pageLoaderConfig={pageLoaderConfig}>
       <article className={styles.homePage}>

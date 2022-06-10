@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route, Link, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 import {
@@ -10,7 +10,11 @@ import {
   MessagePage,
   NotificationPage,
   ProfilePage,
+  TestPickerPage,
+  LoginPage
 } from "./pages";
+import { AuthProviderWrapper, useAuth } from "./authprovider";
+
 import { TestPickerLayout, TwitterWebLayout } from "./layouts";
 import CONFIG from "./config";
 import PageLoaderConfigs from "./pageloaders";
@@ -40,93 +44,112 @@ export default function App() {
 
   const currentPageLoaderConfig = PageLoaderConfigs[activePageLoaderOption];
 
+  const showLarryEntrance = parseInt(sessionStorage.getItem("show_larry"));
+  sessionStorage.setItem("show_larry", 0);
+
   return (
     <AnimatePresence exitBeforeEnter>
-      <Routes location={location} key={location.pathname}>
-        <Route
-          path="/test"
-          element={
-            <TestPickerLayout
-              activeLottieOption={activeLottieOption}
-              activePageLoaderOption={activePageLoaderOption}
-              onLottieSelectCallback={onLottieSelectCallback}
-              onPageLoaderSelectCallback={onPageLoaderSelectCallback}
+      <AuthProviderWrapper>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/test" element={<TestPickerLayout />}>
+            <Route path="login" element={<LoginPage />} />
+            <Route
+              path="picker"
+              element={
+                <TestPickerPage
+                  activeLottieOption={activeLottieOption}
+                  activePageLoaderOption={activePageLoaderOption}
+                  onLottieSelectCallback={onLottieSelectCallback}
+                  onPageLoaderSelectCallback={onPageLoaderSelectCallback}
+                />
+              }
             />
-          }
-        />
-
-        <Route
-          path="/"
-          element={<TwitterWebLayout pageLoaderConfig={currentPageLoaderConfig} activeLottieOption={activeLottieOption} />}
-        >
-          <Route
-            index
-            element={
-              <HomePage pageLoaderConfig={currentPageLoaderConfig} slug={"/"} />
-            }
-          />
+          </Route>
 
           <Route
-            path="explore"
+            path="/"
             element={
-              <ExplorePage
-                pageLoaderConfig={currentPageLoaderConfig}
-                slug={"/explore"}
-              />
+              <RequireAuth>
+                <TwitterWebLayout
+                  showLarryEntrance={showLarryEntrance}
+                  pageLoaderConfig={currentPageLoaderConfig}
+                  activeLottieOption={activeLottieOption}
+                />
+              </RequireAuth>
             }
-          />
-          <Route
-            path="bookmark"
-            element={
-              <BookmarkPage
-                pageLoaderConfig={currentPageLoaderConfig}
-                slug={"/bookmark"}
-              />
-            }
-          />
-          <Route
-            path="lists"
-            element={
-              <ListPage
-                pageLoaderConfig={currentPageLoaderConfig}
-                slug={"/lists"}
-              />
-            }
-          />
-          <Route
-            path="messages"
-            element={
-              <MessagePage
-                pageLoaderConfig={currentPageLoaderConfig}
-                slug={"/messages"}
-              />
-            }
-          />
-          <Route
-            path="notifications"
-            element={
-              <NotificationPage
-                pageLoaderConfig={currentPageLoaderConfig}
-                slug={"/notifications"}
-              />
-            }
-          />
-          <Route
-            path="profile"
-            element={
-              <ProfilePage
-                pageLoaderConfig={currentPageLoaderConfig}
-                slug={"/profile"}
-              />
-            }
-          />
+          >
+            <Route
+              index
+              element={
+                <HomePage
+                  pageLoaderConfig={currentPageLoaderConfig}
+                  slug={"/"}
+                />
+              }
+            />
 
-          {/* Using path="*"" means "match anything", so this route
+            <Route
+              path="explore"
+              element={
+                <ExplorePage
+                  pageLoaderConfig={currentPageLoaderConfig}
+                  slug={"/explore"}
+                />
+              }
+            />
+            <Route
+              path="bookmarks"
+              element={
+                <BookmarkPage
+                  pageLoaderConfig={currentPageLoaderConfig}
+                  slug={"/bookmarks"}
+                />
+              }
+            />
+            <Route
+              path="lists"
+              element={
+                <ListPage
+                  pageLoaderConfig={currentPageLoaderConfig}
+                  slug={"/lists"}
+                />
+              }
+            />
+            <Route
+              path="messages"
+              element={
+                <MessagePage
+                  pageLoaderConfig={currentPageLoaderConfig}
+                  slug={"/messages"}
+                />
+              }
+            />
+            <Route
+              path="notifications"
+              element={
+                <NotificationPage
+                  pageLoaderConfig={currentPageLoaderConfig}
+                  slug={"/notifications"}
+                />
+              }
+            />
+            <Route
+              path="profile"
+              element={
+                <ProfilePage
+                  pageLoaderConfig={currentPageLoaderConfig}
+                  slug={"/profile"}
+                />
+              }
+            />
+
+            {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
                 routes for. */}
-          <Route path="*" element={<NoMatch />} />
-        </Route>
-      </Routes>
+            <Route path="*" element={<NoMatch />} />
+          </Route>
+        </Routes>
+      </AuthProviderWrapper>
     </AnimatePresence>
   );
 }
@@ -140,4 +163,23 @@ function NoMatch() {
       </p>
     </div>
   );
+}
+
+function RequireAuth({ children }) {
+  let auth = useAuth();
+  let location = useLocation();
+
+  if (
+    !auth.isAuthenticated ||
+    auth.isAuthenticated === undefined ||
+    auth.isAuthenticated === null
+  ) {
+    // Redirect them to the /login page, but save the current location they were
+    // trying to go to when they were redirected. This allows us to send them
+    // along to that page after they login, which is a nicer user experience
+    // than dropping them off on the home page.
+    return <Navigate to="/test/login" state={{ from: location }} replace />;
+  }
+
+  return children;
 }
