@@ -15,23 +15,16 @@ const SidebarRight = () => {
           </div>
           <div className={styles.whatsHappeningModule}>
             <h1 className="headline1">What's happening</h1>
-            {/* <ul className={styles.SidebarNavigation}>
+            {/* <ul className={styles.whatsHappeningWrapper}>
               {Object.keys(NavConfig).map((navItem, index) => {
                 const isActive = activeItem === navItem;
 
                 return (
-                  <SidebarNavigationItem
-                    key={`lil-${index}`}
-                    name={navItem}
-                    config={NavConfig[navItem]}
-                    hoverAnimation={lotties[navItem].hover}
-                    activeAnimation={lotties[navItem].active}
-                    isActive={isActive}
-                    animateIcon={animateIcons}
-                  />
+                  <SidebarNavigationItem />
                 );
               })}
             </ul> */}
+            <h4 className={`body ${styles.showMoreLabel}`}>Show more</h4> 
           </div>
           <div className={styles.whoToFollowModule}>
             <h1 className="headline1">Who to follow</h1>
