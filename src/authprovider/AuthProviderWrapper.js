@@ -18,6 +18,8 @@ function AuthProviderWrapper({ children }) {
 
   let signin = (password, callback, errorCallback) => {
     return fakeAuthProvider.signin(() => {
+      console.log("password", password);
+      console.log("AUTH_UUID_KEY.password", AUTH_UUID_KEY.password);
       if (password === AUTH_UUID_KEY.password) {
         sessionStorage.setItem(AUTH_UUID_KEY.key, AUTH_UUID_KEY.value);
         // setUser(password);
@@ -32,6 +34,7 @@ function AuthProviderWrapper({ children }) {
   let signout = (callback) => {
     return fakeAuthProvider.signout(() => {
       // setUser(null);
+      sessionStorage.setItem(AUTH_UUID_KEY.key, null);
       setIsAuthenticated(false);
       callback();
     });

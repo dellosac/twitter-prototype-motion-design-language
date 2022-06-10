@@ -8,7 +8,7 @@ const ANIMATION_CONFIG = {
 };
 
 const TestPickerPageTransition = ({ entranceDelay, exitDelay, children }) => {
-  let resolved = useResolvedPath("/test");
+  let resolved = useResolvedPath("/test/picker");
   let match = useMatch({ path: resolved.pathname, end: true });
 
   return (
@@ -17,7 +17,7 @@ const TestPickerPageTransition = ({ entranceDelay, exitDelay, children }) => {
       animationConfiguration={ANIMATION_CONFIG}
       exitDelay={exitDelay}
       entranceDelay={entranceDelay}
-      exitDuration={0.15}
+      exitDuration={1}
     >
       {children}
     </Transition>

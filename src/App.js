@@ -10,10 +10,12 @@ import {
   MessagePage,
   NotificationPage,
   ProfilePage,
+  TestPickerPage,
+  LoginPage
 } from "./pages";
 import { AuthProviderWrapper, useAuth } from "./authprovider";
 
-import { LoginLayout, TestPickerLayout, TwitterWebLayout } from "./layouts";
+import { TestPickerLayout, TwitterWebLayout } from "./layouts";
 import CONFIG from "./config";
 import PageLoaderConfigs from "./pageloaders";
 
@@ -49,18 +51,20 @@ export default function App() {
     <AnimatePresence exitBeforeEnter>
       <AuthProviderWrapper>
         <Routes location={location} key={location.pathname}>
-          <Route
-            path="/test"
-            element={
-              <TestPickerLayout
-                activeLottieOption={activeLottieOption}
-                activePageLoaderOption={activePageLoaderOption}
-                onLottieSelectCallback={onLottieSelectCallback}
-                onPageLoaderSelectCallback={onPageLoaderSelectCallback}
-              />
-            }
-          />
-          <Route path="/login" element={<LoginLayout />} />
+          <Route path="/test" element={<TestPickerLayout />}>
+            <Route path="login" element={<LoginPage />} />
+            <Route
+              path="picker"
+              element={
+                <TestPickerPage
+                  activeLottieOption={activeLottieOption}
+                  activePageLoaderOption={activePageLoaderOption}
+                  onLottieSelectCallback={onLottieSelectCallback}
+                  onPageLoaderSelectCallback={onPageLoaderSelectCallback}
+                />
+              }
+            />
+          </Route>
 
           <Route
             path="/"
@@ -173,7 +177,7 @@ function RequireAuth({ children }) {
     // trying to go to when they were redirected. This allows us to send them
     // along to that page after they login, which is a nicer user experience
     // than dropping them off on the home page.
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    return <Navigate to="/test/login" state={{ from: location }} replace />;
   }
 
   return children;

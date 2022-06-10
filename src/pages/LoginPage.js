@@ -1,9 +1,10 @@
-import { useAuth } from "../../authprovider";
+import { useAuth } from "../authprovider";
 import { useNavigate, useLocation } from "react-router-dom";
 
-import styles from "./LoginLayout.module.scss";
+import styles from "./LoginPage.module.scss";
+import React from "react";
 
-function LoginLayout() {
+function LoginPage() {
   let navigate = useNavigate();
   let location = useLocation();
   let auth = useAuth();
@@ -14,15 +15,17 @@ function LoginLayout() {
     event.preventDefault();
 
     auth.signout(() => {
-      navigate("/login");
+      navigate("/test/login");
     });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    const formData = new FormData(event.currentTarget);
-    const password = formData.get("password");
+    let formData = new FormData(event.currentTarget);
+    let password = formData.get("password");
+
+    console.log("formData", formData);
 
     auth.signin(
       password,
@@ -34,7 +37,7 @@ function LoginLayout() {
         // won't end up back on the login page, which is also really nice for the
         // user experience.
         // navigate(from, { replace: true });
-        navigate('/test', { replace: true });
+        navigate("/test/picker", { replace: true });
       },
       (msg) => {
         console.log("error msg", msg);
@@ -45,26 +48,32 @@ function LoginLayout() {
   return (
     <div>
       {auth.isAuthenticated ? (
-        <div>
-          <label>You are logged in</label>
+        <React.Fragment>
+          <section className={styles.contentContainer}>
+            <label className={`title4 ${styles.label}`}>
+              You are logged in
+            </label>
+          </section>
           <form onSubmit={handleSignOutSubmit}>
-            <button type="submit">Sign out</button>
+            <button className={styles.submitLink} type="submit">
+              Sign out
+            </button>
           </form>
-        </div>
+        </React.Fragment>
       ) : (
-        <div>
-          {" "}
-          <p>You must log in to view the page at {from}</p>
-          <form onSubmit={handleSubmit}>
-            <label>
+        <form onSubmit={handleSubmit}>
+          <section className={styles.contentContainer}>
+            <label className={`title4 ${styles.label}`}>
               password: <input name="password" type="password" />
-            </label>{" "}
-            <button type="submit">Login</button>
-          </form>
-        </div>
+            </label>
+          </section>
+          <button className={styles.submitLink} type="submit">
+            Login
+          </button>
+        </form>
       )}
     </div>
   );
 }
 
-export default LoginLayout;
+export default LoginPage;
