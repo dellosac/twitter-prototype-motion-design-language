@@ -20,9 +20,6 @@ const TwitterWebLayout = ({ activeLottieOption, showLarryEntrance }) => {
     exit: { opacity: 0 },
   };
 
-  console.log("showLarryEntrance ?", showLarryEntrance);
-  console.log("showLarry!", match);
-
   return (
     <main
       className={`${styles.layout}`}

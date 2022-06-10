@@ -4,7 +4,7 @@ import OrderCTA from "../images/order-cta.png";
 import TweetOptions from '../images/tweet-options.png';
 
 const HomePage = ({ pageLoaderConfig, slug }) => {
-  console.log("home rednered");
+  
   return (
     <Page slug={slug} pageLoaderConfig={pageLoaderConfig}>
       <article className={styles.homePage}>
