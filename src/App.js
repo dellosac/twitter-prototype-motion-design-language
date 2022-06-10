@@ -79,11 +79,11 @@ export default function App() {
             }
           />
           <Route
-            path="bookmark"
+            path="bookmarks"
             element={
               <BookmarkPage
                 pageLoaderConfig={currentPageLoaderConfig}
-                slug={"/bookmark"}
+                slug={"/bookmarks"}
               />
             }
           />
