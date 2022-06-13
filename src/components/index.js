@@ -1,13 +1,15 @@
+import SidebarLeft from "./SidebarLeft";
 import SidebarNavigationItem from "./SidebarNavigationItem";
-import SidebarNavigation from "./SidebarNavigation";
 import SidebarRight from "./SidebarRight";
+import StaticItem from "./StaticItem";
 import TestOptionsList from "./TestOptionsList";
 import Transition from "./Transition";
 
 export {
   SidebarNavigationItem,
-  SidebarNavigation,
+  SidebarLeft,
   SidebarRight,
+  StaticItem,
   TestOptionsList,
   Transition,
 };

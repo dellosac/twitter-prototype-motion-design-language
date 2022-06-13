@@ -72,6 +72,7 @@ export default function App() {
               <RequireAuth>
                 <TwitterWebLayout
                   showLarryEntrance={showLarryEntrance}
+                  pageLoaderConfig={currentPageLoaderConfig}
                   activeLottieOption={activeLottieOption}
                   pageLoaderConfig={currentPageLoaderConfig}
                 />

@@ -1,7 +1,7 @@
 @import '../../styles/variables.scss';
 @import '../../styles/easings.scss';
 
-.Sidebar {
+.SidebarLeft {
     min-width: 256px;
     .logo {
         margin-top: 2px;
@@ -11,15 +11,17 @@
         width: 52px;
         height: 52px;
         background: #FFF;
-        
         border-radius: 52px;
+        cursor: pointer;
+        transition: background 333ms $easeOutQuint;
     
         .larry {
             width: 29px;
         }
     
         &:hover {
-            cursor: pointer;
+            background: #EDF5FD;
+            transition: background 666ms $easeOutQuint;
         }
     }
     

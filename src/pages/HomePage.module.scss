@@ -1,6 +1,9 @@
 @import '../styles/variables.scss';
 
 .homePage {
+    border-left: #d1d6db 1px solid;
+    border-right: #d1d6db 1px solid;
+
     .pageHeader {
         padding: 0 16px;
         height: 56px;
@@ -51,11 +54,11 @@
                 flex-direction: row;
                 align-items: center;
                 justify-content: space-between;
-                cursor: pointer;
 
                 .tweetOptions {
                     width: 184px;
                     height: 24px;
+                    cursor: pointer;
                 }
 
                 .tweetCTA {
@@ -73,5 +76,12 @@
                 }
             }
         }
+    }
+
+    .tweetsWrapper {
+        border-top: 1px #EFF3F4 solid;
+        padding: 0;
+        list-style-type: none;
+    
     }
 }

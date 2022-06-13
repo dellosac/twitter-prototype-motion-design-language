@@ -1,13 +1,17 @@
-import { SidebarNavigation, SidebarRight } from "../../components";
+import { SidebarLeft, SidebarRight } from "../../components";
 import { Outlet } from "react-router-dom";
 import Lotties from "../../lotties";
 
 import { Transition } from "../../components";
 import styles from "./TwitterWebLayout.module.scss";
-import { useResolvedPath, useMatch } from 'react-router-dom';
+import { useResolvedPath, useMatch } from "react-router-dom";
 
-const TwitterWebLayout = ({ activeLottieOption, showLarryEntrance = false, pageLoaderConfig }) => {
-  let resolved = useResolvedPath('/');
+const TwitterWebLayout = ({
+  pageLoaderConfig,
+  activeLottieOption,
+  showLarryEntrance = false,
+}) => {
+  let resolved = useResolvedPath("/");
   let match = useMatch({ path: resolved.pathname, end: true });
 
   const onNavigationChange = (newNavSlug) => {
@@ -21,12 +25,11 @@ const TwitterWebLayout = ({ activeLottieOption, showLarryEntrance = false, pageL
   };
 
   return (
-    <main
-      className={`${styles.layout}`}
-    >
+    <main className={`${styles.layout}`}>
       <nav className={styles.navigation}>
-        <SidebarNavigation
+        <SidebarLeft
           showLarryEntrance={showLarryEntrance}
+          loaderStyle={pageLoaderConfig}
           activeItem={activeLottieOption}
           onNavigationChange={onNavigationChange}
           lotties={Lotties[activeLottieOption]}
@@ -37,10 +40,10 @@ const TwitterWebLayout = ({ activeLottieOption, showLarryEntrance = false, pageL
       <article className={styles.pages}>
         <Outlet />
       </article>
-      <SidebarRight />
+      <SidebarRight loaderStyle={pageLoaderConfig} />
       {showLarryEntrance == true && (
         <Transition
-          isActive={match}
+          isActive={showLarryEntrance}
           entranceDelay={1}
           exitDelay={0}
           exitDuration={0}
