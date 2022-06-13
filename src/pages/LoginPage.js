@@ -25,8 +25,6 @@ function LoginPage() {
     let formData = new FormData(event.currentTarget);
     let password = formData.get("password");
 
-    console.log("formData", formData);
-
     auth.signin(
       password,
       () => {

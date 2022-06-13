@@ -12,17 +12,11 @@ function AuthProviderWrapper({ children }) {
   let [isAuthenticated, setIsAuthenticated] = React.useState(
     sessionStorage.getItem(AUTH_UUID_KEY.key) === AUTH_UUID_KEY.value
   );
-  // let [user, setUser] = React.useState(null);
-
-    console.log("AUTH_UUID_KEY.password", AUTH_UUID_KEY.password);
 
   let signin = (password, callback, errorCallback) => {
     return fakeAuthProvider.signin(() => {
-      console.log("password", password);
-      console.log("AUTH_UUID_KEY.password", AUTH_UUID_KEY.password);
       if (password === AUTH_UUID_KEY.password) {
         sessionStorage.setItem(AUTH_UUID_KEY.key, AUTH_UUID_KEY.value);
-        // setUser(password);
         setIsAuthenticated(true);
         callback();
       } else {
@@ -33,7 +27,6 @@ function AuthProviderWrapper({ children }) {
 
   let signout = (callback) => {
     return fakeAuthProvider.signout(() => {
-      // setUser(null);
       sessionStorage.setItem(AUTH_UUID_KEY.key, null);
       setIsAuthenticated(false);
       callback();
