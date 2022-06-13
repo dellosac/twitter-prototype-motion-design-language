@@ -1,8 +1,8 @@
 const COMPONENT_ANIMATIONS = {
 //  SidebarLeft:
-  // logo: {
-  //   translateY: false
-  // },
+  logo: {
+    translateY: false
+  },
   tweetCTA: {
     translateY: false
   },
@@ -13,10 +13,16 @@ const COMPONENT_ANIMATIONS = {
   searchBar: {
     translateY: false
   },
-  whatsHappening: {
+  whatsHappeningModule: {
     translateY: false
   },
-  whoToFollow: {
+  whatsHappeningLabel: {
+    translateY: false
+  },
+  whoToFollowModule: {
+    translateY: false
+  },
+  whoToFollowLabel: {
     translateY: false
   },
 //  Home:

@@ -41,6 +41,8 @@
         .whatsHappeningModule, .whoToFollowModule {
             padding: 12px 16px;
             display: flex;
+            flex-direction: column;
+            align-items: flex-start;
             border-radius: 12px;
             color: #0F1419;
 
@@ -51,9 +53,6 @@
         }
 
         .whatsHappeningModule {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
             height: 656px;
 
             .whatsHappeningWrapper {
@@ -71,6 +70,12 @@
 
         .whoToFollowModule {
             height: 332px;
+
+            .whoToFollowWrapper {
+                margin: 15px 0 5px -16px;
+                padding: 0px 0px;
+                list-style-type: none;
+            }
         }
     }
 }

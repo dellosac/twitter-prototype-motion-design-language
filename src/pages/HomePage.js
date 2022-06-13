@@ -24,12 +24,12 @@ const HomePage = ({ pageLoaderConfig, slug }) => {
           isActive={true}
           animationConfiguration={pageLoaderConfig}
           entranceDelay={1 * pageLoaderConfig.delayFactor}
+          component={"tweetComposer"}
         >
           <div className={styles.tweetComposer}>
             <img className={styles.pfp} />
             <div className={styles.wrapper}>
               <span className={`headline1 ${styles.prompt}`}>What's happening?</span>
-              <div className={styles.divider}></div>
               <div className={styles.ctas}>
                 <img className={styles.tweetOptions} src={TweetOptions} />
                 <div className={`body ${styles.tweetCTA}`}>Tweet</div>
@@ -37,22 +37,28 @@ const HomePage = ({ pageLoaderConfig, slug }) => {
             </div>
           </div>
         </Transition>
-        <ul className={styles.tweetsWrapper}>
-          {[...Array(4)].map((e, i) => {
-            return (
-              <Transition 
-                isActive={true}
-                animationConfiguration={pageLoaderConfig}
-                entranceDelay={(2 + i) * pageLoaderConfig.delayFactor}
-              >
-                <StaticItem 
+        <Transition 
+          isActive={true}
+          animationConfiguration={pageLoaderConfig}
+          entranceDelay={2 * pageLoaderConfig.delayFactor}
+        >
+          <ul className={styles.tweetsWrapper}>
+            {[...Array(4)].map((e, i) => {
+              return (
+                <Transition 
                   key={`lil-${i}`}
-                  src={'./images/pages/home/tweet-' + (i + 1)} 
-                />
-              </Transition>
-            );
-          })}
-        </ul>
+                  isActive={true}
+                  animationConfiguration={pageLoaderConfig}
+                  entranceDelay={(2 + i) * pageLoaderConfig.delayFactor}
+                >
+                  <StaticItem 
+                    src={'./images/pages/home/tweet-' + (i + 1)} 
+                  />
+                </Transition>
+              );
+            })}
+          </ul>
+        </Transition>
       </article>
     </Page>
   );

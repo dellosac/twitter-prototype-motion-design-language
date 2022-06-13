@@ -1,5 +1,4 @@
 const StaticItem = ({src}) => {
-
   return (
     <li>
       <img  srcSet={`${src}.png,

@@ -12,15 +12,18 @@ const Transition = ({
   children,
   entranceOnly = false,
 }) => {
-  let a = Object.assign({}, animationConfiguration);
+  let a = JSON.parse(JSON.stringify(animationConfiguration));
   if (component in CONFIG) {
-    console.log("hi");
     let c = CONFIG[component];
-    if (!c.translateY) {
-      a.initial.translateY = 0;
-    }
+    if (!c.translateY) a.initial.translateY = 0;
+    else if (!c.opacity) {
+      console.log('what')
+      a.initial.opacity = 1;
+
+    }else if (!c.scale) a.initial.scale = 1;
+    if(component === "tweetComposer") console.log("a", c.opacity, !c.opacity, animationConfiguration.initial.opacity, a.initial.opacity);
   }
-  console.log("a", a);
+  
   return entranceOnly && !isActive ? children : (
     <motion.div
       variants={a}
