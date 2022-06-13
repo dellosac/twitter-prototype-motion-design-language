@@ -10,10 +10,13 @@ const SidebarLeft = ({ loaderStyle, lotties, activeItem, animateIcons }) => {
   return (
       <div className={styles.SidebarLeft}>
         <Transition 
-            isActive={true}
-            animationConfiguration={loaderStyle}>
+          isActive={true}
+          animationConfiguration={loaderStyle}
+          entranceDelay={0 * loaderStyle.delayFactor}
+          component={"logo"}
+        >
           <span className={styles.logo}>
-              <Larry className={styles.larry} fill="#1D9BF0" />
+            <Larry className={styles.larry} fill="#1D9BF0" />
           </span>
         </Transition>
         <ul className={styles.SidebarNavigation}>
@@ -22,9 +25,9 @@ const SidebarLeft = ({ loaderStyle, lotties, activeItem, animateIcons }) => {
 
             return (
               <Transition 
-              isActive={true} 
-              animationConfiguration={loaderStyle}
-              entranceDelay={index*0.05}
+                isActive={true} 
+                animationConfiguration={loaderStyle}
+                entranceDelay={(1 + index) * loaderStyle.delayFactor}
               >
                 <SidebarNavigationItem
                   key={`lil-${index}`}
@@ -43,13 +46,15 @@ const SidebarLeft = ({ loaderStyle, lotties, activeItem, animateIcons }) => {
             isActive={true} 
             animationConfiguration={loaderStyle}
             entranceDelay={0.35}
+            component={"tweetCTA"}
         >
           <div className={`headline2 ${styles.tweetCTA}`}>Tweet</div>
         </Transition>
         <Transition 
           isActive={true} 
           animationConfiguration={loaderStyle}
-          entranceDelay={delayFactor*8}
+          entranceDelay={8 * loaderStyle.delayFactor}
+          component={"profileDock"}
         >
           <div className={styles.profileDock}>
             <div className={styles.profileWrapper}>

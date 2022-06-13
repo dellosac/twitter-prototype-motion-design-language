@@ -1,41 +1,28 @@
 const COMPONENT_ANIMATIONS = {
-  SidebarLeft: {
-    logo: {
-      translateY: false
-    },
-    SidebarNavigation: {
-      children: true
-    },
-    tweetCTA: {
-      translateY: false
-    },
-    profileDock: {
-      translateY: false
-    }
+//  SidebarLeft:
+  // logo: {
+  //   translateY: false
+  // },
+  tweetCTA: {
+    translateY: false
   },
-  SidebarRight: {
-    searchBar: {
-      translateY: false
-    },
-    whatsHappening: {
-      children: true,
-      offset: 1,
-      translateY: false
-    },
-    whoToFollow: {
-      children: true,
-      offset: 1,
-      translateY: false
-    }
+  profileDock: {
+    translateY: false
   },
-  Home: {
-    tweetComposer: {
-      opacity: false
-    },
-    tweetsWrapper: {
-      children: true
-    }
-  }
+//  SidebarRight:
+  searchBar: {
+    translateY: false
+  },
+  whatsHappening: {
+    translateY: false
+  },
+  whoToFollow: {
+    translateY: false
+  },
+//  Home:
+  tweetComposer: {
+    opacity: false
+  },
 };
 
 export default COMPONENT_ANIMATIONS;

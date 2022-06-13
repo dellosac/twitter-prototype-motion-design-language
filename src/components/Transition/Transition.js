@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import CONFIG from "../../config/ComponentAnimations";
 
 const Transition = ({
   animationConfiguration,
@@ -7,11 +8,21 @@ const Transition = ({
   exitDuration = 0.1,
   entranceDelay = 0.2,
   exitDelay = 0,
+  component = '',
   children,
 }) => {
+  let a = Object.assign({}, animationConfiguration);
+  if(component in CONFIG) {
+    console.log('hi')
+    let c = CONFIG[component];
+    if(!c.translateY) {
+      a.initial.translateY = 0;
+    }
+  }
+  console.log("a", a)
   return (
     <motion.div
-      variants={animationConfiguration}
+      variants={a}
       initial="initial"
       animate="animate"
       exit="exit"
