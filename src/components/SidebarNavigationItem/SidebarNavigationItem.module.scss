@@ -1,22 +1,25 @@
 .sidebarListItem {
-    &.active .itemLabel {
-        font-weight: 700;
+  min-height: 65px;
+
+  &.active .itemLabel {
+    font-weight: 700;
+  }
+
+  > a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #0f1419;
+
+    .lottieIcon {
+      padding: 12px 12px 12px 6px;
+      width: 36px;
+      height: 36px;
     }
 
-    > a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: #0F1419;
-
-        .lottieIcon {
-            padding: 12px 12px 12px 6px;
-            max-width: 36px;            
-        }
-
-        .itemLabel {
-            margin: 0px 16px 0px 0px;
-            font-weight: 500;
-        }
+    .itemLabel {
+      margin: 0px 16px 0px 0px;
+      font-weight: 500;
     }
+  }
 }

@@ -11,7 +11,7 @@ import {
   NotificationPage,
   ProfilePage,
   TestPickerPage,
-  LoginPage
+  LoginPage,
 } from "./pages";
 import { AuthProviderWrapper, useAuth } from "./authprovider";
 
@@ -48,8 +48,8 @@ export default function App() {
   sessionStorage.setItem("show_larry", 0);
 
   return (
-    <AnimatePresence exitBeforeEnter>
-      <AuthProviderWrapper>
+    <AuthProviderWrapper>
+      <AnimatePresence exitBeforeEnter>
         <Routes location={location} key={location.pathname}>
           <Route path="/test" element={<TestPickerLayout />}>
             <Route path="login" element={<LoginPage />} />
@@ -73,6 +73,7 @@ export default function App() {
                 <TwitterWebLayout
                   showLarryEntrance={showLarryEntrance}
                   activeLottieOption={activeLottieOption}
+                  pageLoaderConfig={currentPageLoaderConfig}
                 />
               </RequireAuth>
             }
@@ -148,8 +149,8 @@ export default function App() {
             <Route path="*" element={<NoMatch />} />
           </Route>
         </Routes>
-      </AuthProviderWrapper>
-    </AnimatePresence>
+      </AnimatePresence>
+    </AuthProviderWrapper>
   );
 }
 

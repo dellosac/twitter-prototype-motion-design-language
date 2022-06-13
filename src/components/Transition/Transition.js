@@ -8,13 +8,14 @@ const Transition = ({
   entranceDelay = 0.2,
   exitDelay = 0,
   children,
+  entranceOnly = false
 }) => {
   return (
     <motion.div
       variants={animationConfiguration}
       initial="initial"
       animate="animate"
-      exit="exit"
+      exit={entranceOnly ? null : "exit"}
       transition={{
         duration: isActive ? entranceDuration : exitDuration,
         delay: isActive ? entranceDelay : exitDelay,
