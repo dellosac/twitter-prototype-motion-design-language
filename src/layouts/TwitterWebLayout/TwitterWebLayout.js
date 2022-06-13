@@ -6,7 +6,7 @@ import { Transition } from "../../components";
 import styles from "./TwitterWebLayout.module.scss";
 import { useResolvedPath, useMatch } from 'react-router-dom';
 
-const TwitterWebLayout = ({ activeLottieOption, showLarryEntrance, pageLoaderConfig }) => {
+const TwitterWebLayout = ({ activeLottieOption, showLarryEntrance = false, pageLoaderConfig }) => {
   let resolved = useResolvedPath('/');
   let match = useMatch({ path: resolved.pathname, end: true });
 
@@ -38,7 +38,7 @@ const TwitterWebLayout = ({ activeLottieOption, showLarryEntrance, pageLoaderCon
         <Outlet />
       </article>
       <SidebarRight />
-      {showLarryEntrance && (
+      {showLarryEntrance == true && (
         <Transition
           isActive={match}
           entranceDelay={1}
