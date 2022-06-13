@@ -25,7 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "static_site_sandbox": "static-sites publish --sandbox --serve-missing-directories test ./build"
+    "static_site_sandbox": "yarn build; static-sites publish --sandbox --serve-missing-directories test ./build"
   },
   "eslintConfig": {
     "extends": [
