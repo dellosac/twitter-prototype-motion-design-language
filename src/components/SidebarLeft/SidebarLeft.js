@@ -24,6 +24,10 @@ const SidebarLeft = ({
       <Transition
         isActive={showLarryEntrance}
         animationConfiguration={loaderStyle}
+<<<<<<< HEAD
+=======
+        entranceDelay={0}
+>>>>>>> 27ea5236aa5c109465c991738c7e8b6a5576d6b5
         component={"logo"}
         entranceOnly={true}
       >
@@ -40,7 +44,15 @@ const SidebarLeft = ({
               key={`lil-${index}`}
               isActive={showLarryEntrance}
               animationConfiguration={loaderStyle}
+<<<<<<< HEAD
               entranceDelay={(1 + index) * loaderStyle.delayFactor}
+=======
+              entranceDelay={
+                (1 + index) * loaderStyle.delayFactor
+              }
+              exitDelay={0}
+              exitDuration={0}
+>>>>>>> 27ea5236aa5c109465c991738c7e8b6a5576d6b5
               entranceOnly={true}
             >
               <SidebarNavigationItem
@@ -59,7 +71,11 @@ const SidebarLeft = ({
       <Transition
         isActive={showLarryEntrance}
         animationConfiguration={loaderStyle}
+<<<<<<< HEAD
         entranceDelay={7 * loaderStyle.delayFactor}
+=======
+        entranceDelay={0.35}
+>>>>>>> 27ea5236aa5c109465c991738c7e8b6a5576d6b5
         component={"tweetCTA"}
         exitDelay={0}
         exitDuration={0}
