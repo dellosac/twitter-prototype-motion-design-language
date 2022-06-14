@@ -2,6 +2,7 @@ import { SidebarLeft, SidebarRight } from "../../components";
 import { Outlet } from "react-router-dom";
 import Lotties from "../../lotties";
 
+import TwitterWebLayoutTransition from "./TwitterWebLayoutTransition";
 import { Transition } from "../../components";
 import styles from "./TwitterWebLayout.module.scss";
 import { useResolvedPath, useMatch } from "react-router-dom";
@@ -42,7 +43,7 @@ const TwitterWebLayout = ({
       </article>
       <SidebarRight loaderStyle={pageLoaderConfig} />
       {showLarryEntrance == true && (
-        <Transition
+        <TwitterWebLayoutTransition
           isActive={showLarryEntrance}
           entranceDelay={1}
           exitDelay={0}
@@ -51,7 +52,7 @@ const TwitterWebLayout = ({
           entranceOnly={true}
         >
           <div className={styles.animateLarry}></div>
-        </Transition>
+        </TwitterWebLayoutTransition>
       )}
     </main>
   );

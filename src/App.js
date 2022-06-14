@@ -45,7 +45,12 @@ export default function App() {
   const currentPageLoaderConfig = PageLoaderConfigs[activePageLoaderOption];
 
   const showLarryEntrance = parseInt(sessionStorage.getItem("show_larry"));
-  sessionStorage.setItem("show_larry", 0);
+  if (showLarryEntrance) {
+    window.showLarryEntrance = true;
+    sessionStorage.setItem("show_larry", 0);
+  } else {
+    window.showLarryEntrance = false;
+  }
 
   return (
     <AuthProviderWrapper>
