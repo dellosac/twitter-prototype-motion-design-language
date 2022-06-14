@@ -1,101 +1,107 @@
-@import '../../styles/variables.scss';
-@import '../../styles/easings.scss';
+@import "../../styles/variables.scss";
+@import "../../styles/easings.scss";
 
 .SidebarLeft {
-    min-width: 256px;
-    .logo {
-        margin-top: 2px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 52px;
-        height: 52px;
-        background: #FFF;
-        border-radius: 52px;
-        cursor: pointer;
-        transition: background 333ms $easeOutQuint;
-    
-        .larry {
-            width: 29px;
-        }
-    
-        &:hover {
-            background: #EDF5FD;
-            transition: background 666ms $easeOutQuint;
-        }
-    }
-    
-    .SidebarNavigation {
-        list-style: none;
-        text-decoration: none;
-        min-height: 455px;
-        // display: flex;
-        margin: 0;
-        padding: 0;
-    
-        > li {
-    //        margin: 0 $base-px;
-        }
-    }
- 
-    .tweetCTA {
-        display: flex;
-        margin-top: 16px;
-        justify-content: center;
-        align-items: center;
-        width: 225px;
-        height: 52px;
-        background: #1D9BF0;
-        border-radius: 100px;
-        color: white;
-        font-weight: 1000;
-        cursor: pointer;
-        transition: background 333ms $easeOutQuint;
-        
-        &:hover {
-            background: #408cd2;
-            transition: background 666ms $easeOutQuint;
-        }
+  min-width: 256px;
+  .logo {
+    margin-top: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 52px;
+    background: #fff;
+    border-radius: 52px;
+    cursor: pointer;
+    transition: background 333ms $easeOutQuint;
+
+    .larry {
+      width: 29px;
     }
 
-   .profileDock {
-       position: fixed;
-       bottom: 25px;
-       display: flex;
-       justify-content: space-between;
-       align-items: center;
-       width: 225px;
-       cursor: pointer;
+    &:hover {
+      background: #edf5fd;
+      transition: background 666ms $easeOutQuint;
+    }
+  }
 
-       .profileWrapper {
-            display: flex;
-            align-items: flex-start;
-            
-            .pfp {
-               width: 40px;
-               height: 40px;
-               background-color: #1D9BF0;
-               border-radius: 50px;
-            }
-            
-            .labels {
-                padding-left: 8px;
-                line-height: 12px;
-            
-                .displayName {
-                    color: #0F1419;
-                    font-weight: 700;
-                }
-                
-                .username {
-                    color: #536471;
-                }
-            }
+  .SidebarNavigation {
+    list-style: none;
+    text-decoration: none;
+    min-height: 455px;
+    // display: flex;
+    margin: 0;
+    padding: 0;
+
+    > li {
+      //        margin: 0 $base-px;
+    }
+  }
+
+  .tweetCTA {
+    display: flex;
+    margin-top: 16px;
+    justify-content: center;
+    align-items: center;
+    width: 225px;
+    height: 52px;
+    background: #1d9bf0;
+    border-radius: 100px;
+    color: white;
+    font-weight: 1000;
+    cursor: pointer;
+    transition: background 333ms $easeOutQuint;
+
+    &:hover {
+      background: #408cd2;
+      transition: background 666ms $easeOutQuint;
+    }
+  }
+
+  .profileDockWrapper {
+    position: fixed;
+    bottom: 25px;
+    width: 225px;
+  }
+
+  .profileDock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .profileWrapper {
+      display: flex;
+      align-items: flex-start;
+
+      .pfp {
+        width: 40px;
+        height: 40px;
+        background-color: #1d9bf0;
+        border-radius: 50px;
+      }
+
+      .labels {
+        padding-left: 8px;
+        line-height: 12px;
+
+        .displayName {
+          color: #0f1419;
+          font-weight: 700;
         }
 
-       .moreCTA {
-           width: 18px;
-           height: 4px;
-       }
-    } 
+        .username {
+          color: #536471;
+        }
+      }
+    }
+
+    .moreCTA {
+      width: 18px;
+      height: 4px;
+    }
+  }
 }

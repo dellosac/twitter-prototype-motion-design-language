@@ -12,7 +12,6 @@ const SidebarLeft = ({
   animateIcons,
   showLarryEntrance,
 }) => {
-
   const larryLogo = (
     <span className={styles.logo}>
       <Larry className={styles.larry} fill="#1D9BF0" />
@@ -69,27 +68,29 @@ const SidebarLeft = ({
         <div className={`headline2 ${styles.tweetCTA}`}>Tweet</div>
       </Transition>
 
-      <Transition
-        isActive={showLarryEntrance}
-        animationConfiguration={loaderStyle}
-        entranceDelay={8 * loaderStyle.delayFactor}
-        component={"profileDock"}
-        exitDelay={0}
-        exitDuration={0}
-        entranceOnly={true}
-      >
-        <div className={styles.profileDock}>
-          <div className={styles.profileWrapper}>
-            <img className={styles.pfp} />
-            <div className={styles.labels}>
-              <span className={`body ${styles.displayName}`}>First Last</span>
-              <br />
-              <span className={`subtext2 ${styles.username}`}>@username</span>
+      <div className={styles.profileDockWrapper}>
+        <Transition
+          isActive={showLarryEntrance}
+          animationConfiguration={loaderStyle}
+          entranceDelay={8 * loaderStyle.delayFactor}
+          component={"profileDock"}
+          exitDelay={0}
+          exitDuration={0}
+          entranceOnly={true}
+        >
+          <div className={styles.profileDock}>
+            <div className={styles.profileWrapper}>
+              <img className={styles.pfp} />
+              <div className={styles.labels}>
+                <span className={`body ${styles.displayName}`}>First Last</span>
+                <br />
+                <span className={`subtext2 ${styles.username}`}>@username</span>
+              </div>
             </div>
+            <img className={styles.moreCTA} src={MoreCTA} />
           </div>
-          <img className={styles.moreCTA} src={MoreCTA} />
-        </div>
-      </Transition>
+        </Transition>
+      </div>
     </div>
   );
 };
