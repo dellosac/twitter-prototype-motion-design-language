@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 const TwitterWebLayoutTransition = ({
   animationConfiguration,
   entranceDuration = 0.3,
-  entranceDelay = 0.2,
   children,
 }) => {
   return (
@@ -14,7 +13,7 @@ const TwitterWebLayoutTransition = ({
       exit={null}
       transition={{
         duration: entranceDuration,
-        delay: entranceDelay,
+        delay: 1,
       }}
     >
       {children}

@@ -41,14 +41,15 @@ const TwitterWebLayout = ({
       <article className={styles.pages}>
         <Outlet />
       </article>
-      <SidebarRight 
+      <SidebarRight
         showLarryEntrance={showLarryEntrance}
-        loaderStyle={pageLoaderConfig} 
+        loaderStyle={pageLoaderConfig}
       />
       {showLarryEntrance == true && (
         <TwitterWebLayoutTransition
           isActive={showLarryEntrance}
-          entranceDelay={1}
+          entranceDelay={pageLoaderConfig.name === "None" ? 0 : 1}
+          entranceDuration={pageLoaderConfig.name === "None" ? 0 : 0.3}
           exitDelay={0}
           exitDuration={0}
           animationConfiguration={ANIMATION_CONFIG}
