@@ -26,8 +26,6 @@ const Transition = ({
   if(window.showLarryEntrance) {
     entranceDelay += 1.3;
   }
-  console.log("window.showLarryEntrance", window.showLarryEntrance);
-  console.log("window.showLarryEntrance", entranceDelay);
   
   return entranceOnly && !isActive ? children : (
     <motion.div
@@ -37,7 +35,7 @@ const Transition = ({
       exit={null}
       transition={{
         duration: isActive ? entranceDuration : exitDuration,
-        delay: isActive ? entranceDelay + 1.3 : exitDelay,
+        delay: isActive ? entranceDelay : exitDelay,
       }}
     >
       {children}
