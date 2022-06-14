@@ -2,8 +2,7 @@ import Page from "./Page";
 import styles from "./HomePage.module.scss";
 import OrderCTA from "../images/order-cta.png";
 import TweetOptions from '../images/tweet-options.png';
-import { StaticItem } from "../components";
-import Transition from "../components/Transition";
+import { StaticItem, Transition } from "../components";
 
 const HomePage = ({ pageLoaderConfig, slug }) => {
   
@@ -16,14 +15,14 @@ const HomePage = ({ pageLoaderConfig, slug }) => {
           entranceDelay={0 * pageLoaderConfig.delayFactor}
         >
           <div className={styles.pageHeader}>
-            <h1 className={`headline2 ${styles.pageLabel}`}>Home</h1>
+            <h1 className={`headline2 ${styles.pageLabel}`}>Latest Tweets</h1>
             <img className={styles.orderCTA} src={OrderCTA} />
           </div>
         </Transition>
         <Transition 
           isActive={true}
           animationConfiguration={pageLoaderConfig}
-          entranceDelay={1 * pageLoaderConfig.delayFactor}
+          entranceDelay={0 * pageLoaderConfig.delayFactor}
           component={"tweetComposer"}
         >
           <div className={styles.tweetComposer}>
@@ -51,9 +50,9 @@ const HomePage = ({ pageLoaderConfig, slug }) => {
                   animationConfiguration={pageLoaderConfig}
                   entranceDelay={(2 + i) * pageLoaderConfig.delayFactor}
                 >
-                  <StaticItem 
-                    src={'./images/pages/home/tweet-' + (i + 1)} 
-                  />
+                  <li>
+                    <StaticItem src={'./images/pages/home/tweet-' + (i + 1)} />
+                  </li>
                 </Transition>
               );
             })}

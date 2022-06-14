@@ -4,36 +4,44 @@
     width: 380px;
 
     .wrapper {
-        padding: 9px 0 0 20px;
+        padding-left: 20px;
         display: flex;
         flex-direction: column;
         row-gap: 16px;
-        width: 360px;
+        min-width: 360px;
 
-        .searchBar, .whatsHappeningModule, .whoToFollowModule {
+        .searchBarPill, .whatsHappeningModule, .whoToFollowModule {
             background: #EFF3F4;
         }
 
         .searchBar {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            height: 40px;
-            border-radius: 100px;
-            cursor: pointer;
+            position: fixed;
+            min-width: 360px;
+            min-height: 55px;
+            background: white;
 
-            .searchWrapper {
+            .searchBarPill {
+                margin-top: 9px;
                 display: flex;
+                flex-direction: row;
                 align-items: center;
-
-                .searchIcon {
-                    width: 13px;
-                }
-                
-                .searchLabel {
-                    padding-left: 10px;
-                    color: #536471;
+                justify-content: center;
+                height: 40px;
+                border-radius: 100px;
+                cursor: pointer;
+    
+                .searchWrapper {
+                    display: flex;
+                    align-items: center;
+    
+                    .searchIcon {
+                        width: 13px;
+                    }
+                    
+                    .searchLabel {
+                        padding-left: 10px;
+                        color: #536471;
+                    }
                 }
             }
         }
@@ -50,16 +58,6 @@
                 margin: 0;
                 font-weight: 800;
             }
-        }
-
-        .whatsHappeningModule {
-            height: 656px;
-
-            .whatsHappeningWrapper {
-                margin: 15px 0 5px -16px;
-                padding: 0px 0px;
-                list-style-type: none;
-            }
 
             .showMoreLabel {
                 margin: 0;
@@ -68,8 +66,19 @@
             }
         }
 
+        .whatsHappeningModule {
+            margin-top: 55px;
+            height: 656px;
+
+            .whatsHappeningWrapper {
+                margin: 15px 0 5px -16px;
+                padding: 0px 0px;
+                list-style-type: none;
+            }
+        }
+
         .whoToFollowModule {
-            height: 332px;
+            height: 318px;
 
             .whoToFollowWrapper {
                 margin: 15px 0 5px -16px;

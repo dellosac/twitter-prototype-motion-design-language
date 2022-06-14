@@ -14,9 +14,11 @@ const SidebarLeft = ({
 }) => {
 
   const larryLogo = (
-    <span className={styles.logo}>
-      <Larry className={styles.larry} fill="#1D9BF0" />
-    </span>
+    <a href='./test/picker'>
+      <span className={styles.logo}>
+        <Larry className={styles.larry} fill="#1D9BF0" />
+      </span>
+    </a>
   );
 
   return (
@@ -60,7 +62,7 @@ const SidebarLeft = ({
       <Transition
         isActive={showLarryEntrance}
         animationConfiguration={loaderStyle}
-        entranceDelay={7 * loaderStyle.delayFactor}
+        entranceDelay={0 * loaderStyle.delayFactor}
         component={"tweetCTA"}
         exitDelay={0}
         exitDuration={0}
@@ -72,7 +74,7 @@ const SidebarLeft = ({
       <Transition
         isActive={showLarryEntrance}
         animationConfiguration={loaderStyle}
-        entranceDelay={8 * loaderStyle.delayFactor}
+        entranceDelay={0 * loaderStyle.delayFactor}
         component={"profileDock"}
         exitDelay={0}
         exitDuration={0}

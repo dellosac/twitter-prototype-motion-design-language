@@ -4,7 +4,8 @@ const COMPONENT_ANIMATIONS = {
     translateY: false
   },
   tweetCTA: {
-    translateY: false
+    translateY: false,
+    scale: false
   },
   profileDock: {
     translateY: false

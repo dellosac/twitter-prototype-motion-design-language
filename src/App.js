@@ -4,11 +4,11 @@ import { AnimatePresence } from "framer-motion";
 
 import {
   HomePage,
-  BookmarkPage,
+  BookmarksPage,
   ExplorePage,
   ListPage,
   MessagePage,
-  NotificationPage,
+  NotificationsPage,
   ProfilePage,
   TestPickerPage,
   LoginPage,
@@ -105,7 +105,7 @@ export default function App() {
             <Route
               path="bookmarks"
               element={
-                <BookmarkPage
+                <BookmarksPage
                   pageLoaderConfig={currentPageLoaderConfig}
                   slug={"/bookmarks"}
                 />
@@ -132,7 +132,7 @@ export default function App() {
             <Route
               path="notifications"
               element={
-                <NotificationPage
+                <NotificationsPage
                   pageLoaderConfig={currentPageLoaderConfig}
                   slug={"/notifications"}
                 />

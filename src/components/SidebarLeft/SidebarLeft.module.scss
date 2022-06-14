@@ -2,6 +2,7 @@
 @import '../../styles/easings.scss';
 
 .SidebarLeft {
+    position: fixed;
     min-width: 256px;
     .logo {
         margin-top: 2px;
@@ -32,10 +33,6 @@
         // display: flex;
         margin: 0;
         padding: 0;
-    
-        > li {
-    //        margin: 0 $base-px;
-        }
     }
  
     .tweetCTA {

@@ -15,17 +15,11 @@ const Transition = ({
 
   let a = JSON.parse(JSON.stringify(animationConfiguration));
 
-  if (component in CONFIG) {
-    let c = CONFIG[component];
-    if (!c.translateY) a.initial.translateY = 0;
-    else if (!c.opacity) a.initial.opacity = 1;
-    else if (!c.scale) a.initial.scale = 1;
-    if(component === "tweetComposer") console.log("a", c.opacity, !c.opacity, animationConfiguration.initial.opacity, a.initial.opacity);
-  }
+  if (component in CONFIG)
+    for(let p in CONFIG[component])
+      if(a.initial.hasOwnProperty(p)) a.initial[p] = (a.initial[p] == 0) ? 1 : 0;
 
-  if(window.showLarryEntrance) {
-    entranceDelay += 1.3;
-  }
+  if(window.showLarryEntrance) entranceDelay += 1.3;
   
   return entranceOnly && !isActive ? children : (
     <motion.div

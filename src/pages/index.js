@@ -1,9 +1,9 @@
-import BookmarkPage from "./BookmarkPage";
+import BookmarksPage from "./BookmarksPage";
 import ExplorePage from "./ExplorePage";
 import HomePage from "./HomePage";
 import ListPage from "./ListPage";
 import MessagePage from "./MessagesPage";
-import NotificationPage from "./NotificationPage";
+import NotificationsPage from "./NotificationsPage";
 import ProfilePage from "./ProfilePage";
 import TestPickerPage from "./TestPickerPage";
 import LoginPage from "./LoginPage";
@@ -11,9 +11,9 @@ import LoginPage from "./LoginPage";
 export {
   HomePage,
   ExplorePage,
-  NotificationPage,
+  NotificationsPage,
   MessagePage,
-  BookmarkPage,
+  BookmarksPage,
   ListPage,
   ProfilePage,
   TestPickerPage,

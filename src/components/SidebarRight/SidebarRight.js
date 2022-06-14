@@ -15,10 +15,12 @@ const SidebarRight = ({ loaderStyle, showLarryEntrance }) => {
             component={"searchBar"}
           >
             <div className={styles.searchBar}>
-              <div className={styles.searchWrapper}>
-                <img className={styles.searchIcon} src={SearchIcon} />
-                <span className={`body ${styles.searchLabel}`}>Search Twitter</span>
-              </div>              
+              <div className={styles.searchBarPill}>
+                <div className={styles.searchWrapper}>
+                  <img className={styles.searchIcon} src={SearchIcon} />
+                  <span className={`body ${styles.searchLabel}`}>Search Twitter</span>
+                </div>              
+              </div>
             </div>
           </Transition>
           <Transition 
@@ -44,8 +46,10 @@ const SidebarRight = ({ loaderStyle, showLarryEntrance }) => {
                       isActive={showLarryEntrance}
                       animationConfiguration={loaderStyle}
                       entranceDelay={(2 + i) * loaderStyle.delayFactor}
-                    >        
-                      <StaticItem src={'./images/sidebar-right/whats-happening/item-' + (i + 1)} />
+                    >
+                      <li>
+                        <StaticItem src={'./images/sidebar-right/whats-happening/item-' + (i + 1)} />
+                      </li>
                     </Transition>
                   );
                 })}
@@ -82,8 +86,10 @@ const SidebarRight = ({ loaderStyle, showLarryEntrance }) => {
                         isActive={showLarryEntrance}
                         animationConfiguration={loaderStyle}
                         entranceDelay={(9 + i) * loaderStyle.delayFactor}
-                      >        
-                        <StaticItem src={'./images/sidebar-right/who-to-follow/account-' + (i + 1)} />
+                      >
+                        <li>
+                          <StaticItem src={'./images/sidebar-right/who-to-follow/account-' + (i + 1)} />
+                        </li>
                       </Transition>
                     );
                   })}
