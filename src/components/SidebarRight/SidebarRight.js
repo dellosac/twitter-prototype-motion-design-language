@@ -3,13 +3,13 @@ import StaticItem from "../StaticItem";
 import SearchIcon from "../../images/search-icon.png";
 import Transition from "../Transition";
 
-const SidebarRight = ({ loaderStyle }) => {
+const SidebarRight = ({ loaderStyle, showLarryEntrance }) => {
 
   return (
       <div className={styles.SidebarRight}>
         <div className={styles.wrapper}>
           <Transition 
-            isActive={true}
+            isActive={showLarryEntrance}
             animationConfiguration={loaderStyle}
             entranceDelay={0 * loaderStyle.delayFactor}
             component={"searchBar"}
@@ -22,14 +22,14 @@ const SidebarRight = ({ loaderStyle }) => {
             </div>
           </Transition>
           <Transition 
-            isActive={true}
+            isActive={showLarryEntrance}
             animationConfiguration={loaderStyle}
             entranceDelay={1 * loaderStyle.delayFactor}
             component={"whatsHappeningModule"}
           >
             <div className={styles.whatsHappeningModule}>
               <Transition 
-                isActive={true}
+                isActive={showLarryEntrance}
                 animationConfiguration={loaderStyle}
                 entranceDelay={1.5 * loaderStyle.delayFactor}
                 component={"whatsHappeningLabel"}
@@ -41,7 +41,7 @@ const SidebarRight = ({ loaderStyle }) => {
                   return (
                     <Transition 
                       key={`lil-${i}`}
-                      isActive={true}
+                      isActive={showLarryEntrance}
                       animationConfiguration={loaderStyle}
                       entranceDelay={(2 + i) * loaderStyle.delayFactor}
                     >        
@@ -51,7 +51,7 @@ const SidebarRight = ({ loaderStyle }) => {
                 })}
               </ul>
               <Transition 
-                isActive={true}
+                isActive={showLarryEntrance}
                 animationConfiguration={loaderStyle}
                 entranceDelay={7 * loaderStyle.delayFactor}
               >
@@ -60,14 +60,14 @@ const SidebarRight = ({ loaderStyle }) => {
             </div>
           </Transition>
           <Transition 
-            isActive={true}
+            isActive={showLarryEntrance}
             animationConfiguration={loaderStyle}
             entranceDelay={8 * loaderStyle.delayFactor}
             component={"whoToFollowModule"}
           >
             <div className={styles.whoToFollowModule}>
               <Transition 
-                    isActive={true}
+                  isActive={showLarryEntrance}
                     animationConfiguration={loaderStyle}
                     entranceDelay={8.5 * loaderStyle.delayFactor}
                     component={"whoToFollowLabel"}
@@ -79,7 +79,7 @@ const SidebarRight = ({ loaderStyle }) => {
                     return (
                       <Transition 
                         key={`lil-${i}`}
-                        isActive={true}
+                        isActive={showLarryEntrance}
                         animationConfiguration={loaderStyle}
                         entranceDelay={(9 + i) * loaderStyle.delayFactor}
                       >        
@@ -89,7 +89,7 @@ const SidebarRight = ({ loaderStyle }) => {
                   })}
                 </ul>
                 <Transition 
-                  isActive={true}
+                  isActive={showLarryEntrance}
                   animationConfiguration={loaderStyle}
                   entranceDelay={10 * loaderStyle.delayFactor}
                 >

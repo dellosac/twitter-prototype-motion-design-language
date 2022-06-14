@@ -40,7 +40,10 @@ const TwitterWebLayout = ({
       <article className={styles.pages}>
         <Outlet />
       </article>
-      <SidebarRight loaderStyle={pageLoaderConfig} />
+      <SidebarRight 
+        showLarryEntrance={showLarryEntrance}
+        loaderStyle={pageLoaderConfig} 
+      />
       {showLarryEntrance == true && (
         <Transition
           isActive={showLarryEntrance}

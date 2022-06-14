@@ -12,7 +12,6 @@ const SidebarLeft = ({
   animateIcons,
   showLarryEntrance,
 }) => {
-  const initialPageLoadDelay = 1.3;
 
   const larryLogo = (
     <span className={styles.logo}>
@@ -25,10 +24,7 @@ const SidebarLeft = ({
       <Transition
         isActive={showLarryEntrance}
         animationConfiguration={loaderStyle}
-        entranceDelay={initialPageLoadDelay}
         component={"logo"}
-        exitDelay={0}
-        exitDuration={0}
         entranceOnly={true}
       >
         {larryLogo}
@@ -44,11 +40,7 @@ const SidebarLeft = ({
               key={`lil-${index}`}
               isActive={showLarryEntrance}
               animationConfiguration={loaderStyle}
-              entranceDelay={
-                initialPageLoadDelay + (1 + index) * loaderStyle.delayFactor
-              }
-              exitDelay={0}
-              exitDuration={0}
+              entranceDelay={(1 + index) * loaderStyle.delayFactor}
               entranceOnly={true}
             >
               <SidebarNavigationItem
@@ -67,7 +59,7 @@ const SidebarLeft = ({
       <Transition
         isActive={showLarryEntrance}
         animationConfiguration={loaderStyle}
-        entranceDelay={initialPageLoadDelay + 0.35}
+        entranceDelay={7 * loaderStyle.delayFactor}
         component={"tweetCTA"}
         exitDelay={0}
         exitDuration={0}

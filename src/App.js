@@ -49,7 +49,7 @@ export default function App() {
 
   return (
     <AuthProviderWrapper>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence>
         <Routes location={location} key={location.pathname}>
           <Route path="/test" element={<TestPickerLayout />}>
             <Route path="login" element={<LoginPage />} />
@@ -74,7 +74,6 @@ export default function App() {
                   showLarryEntrance={showLarryEntrance}
                   pageLoaderConfig={currentPageLoaderConfig}
                   activeLottieOption={activeLottieOption}
-                  pageLoaderConfig={currentPageLoaderConfig}
                 />
               </RequireAuth>
             }
