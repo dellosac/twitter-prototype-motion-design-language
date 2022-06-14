@@ -23,3 +23,13 @@
     }
   }
 }
+
+.staticIcon {
+  width: 30px; //36
+  padding: 13px 15px 12px 9px;
+
+  > img {
+    width: 100%;
+    height: auto;
+  }
+}
