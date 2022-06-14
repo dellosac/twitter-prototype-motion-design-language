@@ -1,7 +1,8 @@
 import * as React from "react";
 
-import { TestOptionsList, Transition } from "../components";
-import { Link, useResolvedPath, useMatch } from "react-router-dom";
+import { TestOptionsList } from "../components";
+import { Link } from "react-router-dom";
+import TestPickerTransition from "../layouts/TestPickerLayout/TestPickerTransition";
 
 import styles from "./TestPickerPage.module.scss";
 import CONFIG from "../config";
@@ -55,28 +56,6 @@ const TestPickerPage = ({
         </Link>
       </TestPickerTransition>
     </React.Fragment>
-  );
-};
-
-const ANIMATION_CONFIG = {
-  initial: { opacity: 0, translateY: 10 },
-  animate: { opacity: 1, translateY: 0 },
-  exit: { opacity: 0, translateY: 10 },
-};
-
-const TestPickerTransition = ({ entranceDelay, children }) => {
-  let resolved = useResolvedPath("/test/picker");
-  let match = useMatch({ path: resolved.pathname, end: true });
-
-  return (
-    <Transition
-      isActive={match}
-      animationConfiguration={ANIMATION_CONFIG}
-      entranceDelay={entranceDelay}
-      exitDuration={0.15}
-    >
-      {children}
-    </Transition>
   );
 };
 

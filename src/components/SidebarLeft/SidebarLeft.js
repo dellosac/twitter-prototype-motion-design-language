@@ -12,7 +12,6 @@ const SidebarLeft = ({
   animateIcons,
   showLarryEntrance,
 }) => {
-
   const larryLogo = (
     <a href='./test/picker'>
       <span className={styles.logo}>
@@ -62,7 +61,7 @@ const SidebarLeft = ({
       <Transition
         isActive={showLarryEntrance}
         animationConfiguration={loaderStyle}
-        entranceDelay={0 * loaderStyle.delayFactor}
+        entranceDelay={0}
         component={"tweetCTA"}
         exitDelay={0}
         exitDuration={0}
@@ -71,27 +70,29 @@ const SidebarLeft = ({
         <div className={`headline2 ${styles.tweetCTA}`}>Tweet</div>
       </Transition>
 
-      <Transition
-        isActive={showLarryEntrance}
-        animationConfiguration={loaderStyle}
-        entranceDelay={0 * loaderStyle.delayFactor}
-        component={"profileDock"}
-        exitDelay={0}
-        exitDuration={0}
-        entranceOnly={true}
-      >
-        <div className={styles.profileDock}>
-          <div className={styles.profileWrapper}>
-            <img className={styles.pfp} />
-            <div className={styles.labels}>
-              <span className={`body ${styles.displayName}`}>First Last</span>
-              <br />
-              <span className={`subtext2 ${styles.username}`}>@username</span>
+      <div className={styles.profileDockWrapper}>
+        <Transition
+          isActive={showLarryEntrance}
+          animationConfiguration={loaderStyle}
+          entranceDelay={0}
+          component={"profileDock"}
+          exitDelay={0}
+          exitDuration={0}
+          entranceOnly={true}
+        >
+          <div className={styles.profileDock}>
+            <div className={styles.profileWrapper}>
+              <img className={styles.pfp} />
+              <div className={styles.labels}>
+                <span className={`body ${styles.displayName}`}>First Last</span>
+                <br />
+                <span className={`subtext2 ${styles.username}`}>@username</span>
+              </div>
             </div>
+            <img className={styles.moreCTA} src={MoreCTA} />
           </div>
-          <img className={styles.moreCTA} src={MoreCTA} />
-        </div>
-      </Transition>
+        </Transition>
+      </div>
     </div>
   );
 };

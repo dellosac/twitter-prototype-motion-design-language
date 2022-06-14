@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useResolvedPath, useMatch, Link } from "react-router-dom";
 import Lottie from "lottie-react";
+import CONFIG from "../../config";
 
 import styles from "./SidebarNavigationItem.module.scss";
 
@@ -30,6 +31,14 @@ const SidebarNavigationItem = ({
     }
   };
 
+  const _staticIcon = (name, isActive) => {
+    const imgSrc = isActive ? CONFIG.StaticIconSettings[name].active : CONFIG.StaticIconSettings[name].default;
+
+    return <span className={styles.staticIcon}>
+      <img src={`./images/icons/${imgSrc}`} alt={name} />
+    </span>
+  }
+
   return (
     <li className={`${match ? styles.active : null} ${styles.sidebarListItem}`} onMouseEnter={onMouseEnter}>
       <Link className={styles.itemContainer} to={URL}>
@@ -41,7 +50,7 @@ const SidebarNavigationItem = ({
             loop={false}
             animationData={match ? activeAnimation : hoverAnimation}
              />
-        ) : null}
+        ) : _staticIcon(name, match)}
         <span className={`headline1 ${styles.itemLabel}`}>{name}</span>
       </Link>
     </li>

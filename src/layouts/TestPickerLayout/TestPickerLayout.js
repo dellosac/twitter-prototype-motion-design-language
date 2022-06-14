@@ -1,11 +1,8 @@
-import { TestOptionsList } from "../../components";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 
 import TestPickerPageTransition from "./TestPickerPageTransition";
-import TestPickerTransition from "./TestPickerTransition";
 import styles from "./TestPickerLayout.module.scss";
-import CONFIG from "../../config";
 
 const TestPickerLayout = () => {
 
