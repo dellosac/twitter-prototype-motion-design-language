@@ -1,5 +1,4 @@
-import { useResolvedPath, useMatch } from "react-router-dom";
-import { Transition } from "../../components";
+import { motion } from "framer-motion";
 
 const ANIMATION_CONFIG = {
   initial: { opacity: 0, translateY: 10 },
@@ -8,18 +7,21 @@ const ANIMATION_CONFIG = {
 };
 
 const TestPickerTransition = ({ entranceDelay, children }) => {
-  let resolved = useResolvedPath("/test");
-  let match = useMatch({ path: resolved.pathname, end: true });
 
   return (
-    <Transition
-      isActive={match}
-      animationConfiguration={ANIMATION_CONFIG}
-      entranceDelay={entranceDelay}
-      exitDuration={0.15}
+    <motion.div
+      className="transition"
+      variants={ANIMATION_CONFIG}
+      initial="initial"
+      animate="animate"
+      exit={null}
+      transition={{
+        duration: 0.3,
+        delay: entranceDelay,
+      }}
     >
       {children}
-    </Transition>
+    </motion.div>
   );
 };
 
