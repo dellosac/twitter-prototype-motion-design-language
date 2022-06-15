@@ -32,8 +32,9 @@ const BookmarkPage = ({ pageLoaderConfig, slug }) => {
                   isActive={true}
                   animationConfiguration={pageLoaderConfig}
                   entranceDelay={(1 + i) * pageLoaderConfig.delayFactor}
+                  hasSkeletalLoading={true}
                 >
-                  <li>
+                  <li className={styles.bookmarkMenuItem}>
                     <StaticItem src={'./images/pages/bookmarks/bookmark-' + (i + 1)} />
                   </li>
                 </Transition>

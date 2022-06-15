@@ -40,14 +40,16 @@ const SidebarRight = ({ loaderStyle, showLarryEntrance }) => {
               </Transition>
               <ul className={styles.whatsHappeningWrapper}>
                 {[...Array(5)].map((e, i) => {
+
                   return (
                     <Transition 
                       key={`lil-${i}`}
                       isActive={showLarryEntrance}
                       animationConfiguration={loaderStyle}
                       entranceDelay={(2 + i) * loaderStyle.delayFactor}
+                      hasSkeletalLoading={showLarryEntrance}
                     >
-                      <li>
+                      <li className={styles.whatsHappeningItem}>
                         <StaticItem src={'./images/sidebar-right/whats-happening/item-' + (i + 1)} />
                       </li>
                     </Transition>

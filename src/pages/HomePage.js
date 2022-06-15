@@ -49,6 +49,7 @@ const HomePage = ({ pageLoaderConfig, slug }) => {
                   isActive={true}
                   animationConfiguration={pageLoaderConfig}
                   entranceDelay={(2 + i) * pageLoaderConfig.delayFactor}
+                  hasSkeletalLoading={true}
                 >
                   <li>
                     <StaticItem src={'./images/pages/home/tweet-' + (i + 1)} />
