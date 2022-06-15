@@ -11,29 +11,36 @@ const Transition = ({
   component = "",
   children,
   entranceOnly = false,
+  hasSkeletalLoading = false,
 }) => {
-
   let a = JSON.parse(JSON.stringify(animationConfiguration));
 
-  if (component in CONFIG)
-    for(let p in CONFIG[component])
-      if(a.initial.hasOwnProperty(p)) a.initial[p] = (a.initial[p] == 0) ? 1 : 0;
+  if (component in CONFIG) {
+    for (let p in CONFIG[component])
+      if (a.initial.hasOwnProperty(p)) a.initial[p] = a.initial[p] == 0 ? 1 : 0;
+  }
 
-  if(window.showLarryEntrance) entranceDelay += 1.3;
-  
-  return entranceOnly && !isActive ? children : (
-    <motion.div
-      variants={a}
-      initial="initial"
-      animate="animate"
-      exit={null}
-      transition={{
-        duration: isActive ? entranceDuration : exitDuration,
-        delay: isActive ? entranceDelay : exitDelay,
-      }}
-    >
-      {children}
-    </motion.div>
+  if (window.showLarryEntrance) {
+    entranceDelay += 1.3;
+  }
+
+  return entranceOnly && !isActive ? (
+    children
+  ) : (
+    <div className={`transition-wrapper ${hasSkeletalLoading ? 'bones' : null}`}>
+      <motion.div
+        variants={a}
+        initial="initial"
+        animate="animate"
+        exit={null}
+        transition={{
+          duration: isActive ? entranceDuration : exitDuration,
+          delay: isActive ? entranceDelay : exitDelay,
+        }}
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 };
 export default Transition;

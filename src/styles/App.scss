@@ -2,7 +2,8 @@
 @import "./variables.scss";
 
 // Global
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   font-family: "Chirp", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
@@ -20,4 +21,22 @@ html, body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.transition-wrapper.bones {
+  background-color: #cdcdcd;
+  border-radius: 16px;
+  background-image: linear-gradient(45deg, #cdcdcd, #eeeeee, #cdcdcd);
+  background-size: 200% 100%;
+  animation: loaderGradient 1s linear infinite normal;
+  animation-fill-mode: forwards;
+}
+
+@keyframes loaderGradient {
+  0% {
+    background-position: -100% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
