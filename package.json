@@ -18,6 +18,7 @@
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "serve": "^13.0.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -25,6 +26,7 @@
     "build": "npm run image_manifest; react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "production_test": "npm run image_manifest; react-scripts build; serve -s build -l 4000",
     "image_manifest": "node ./scripts/generateImageManifest.js",
     "static_site_sandbox": "yarn build; static-sites publish --sandbox --serve-missing-directories test ./build --max-file-count 200"
   },
