@@ -5,15 +5,42 @@ import Lotties from "../../lotties";
 import TwitterWebLayoutTransition from "./TwitterWebLayoutTransition";
 import styles from "./TwitterWebLayout.module.scss";
 
+const _renderSideBar = (currentPath, pageLoaderConfig) => {
+  let shouldAnimateRightBar = parseInt(
+    sessionStorage.getItem("animate_right_bar")
+  );
+  sessionStorage.setItem("animate_right_bar", 0);
+
+  if (currentPath === "/Messages") {
+    sessionStorage.setItem("animate_right_bar", 1);
+    return null;
+  }
+
+  if (currentPath === "/Explore") {
+    sessionStorage.setItem("animate_right_bar", 1);
+    shouldAnimateRightBar = true;
+  }
+
+  return (
+    <SidebarRight
+      showLarryEntrance={shouldAnimateRightBar}
+      loaderStyle={pageLoaderConfig}
+      hideWhatsHappening={(currentPath === "/Explore")}
+    />
+  );
+};
+
 const TwitterWebLayout = ({
   pageLoaderConfig,
   activeLottieOption,
   showLarryEntrance = false,
+  currentPath,
 }) => {
-
   const onNavigationChange = (newNavSlug) => {
     console.log("navigation changed", newNavSlug);
   };
+
+  console.log("currentPath", currentPath);
 
   const ANIMATION_CONFIG = {
     initial: { opacity: 1 },
@@ -34,13 +61,12 @@ const TwitterWebLayout = ({
           pageLoaderConfig={pageLoaderConfig}
         />
       </nav>
-      <article className={styles.pages}>
-        <Outlet />
-      </article>
-      <SidebarRight
-        showLarryEntrance={showLarryEntrance}
-        loaderStyle={pageLoaderConfig}
-      />
+      <div className={styles.contentWrapper}>
+        <article className={styles.pages}>
+          <Outlet />
+        </article>
+        {_renderSideBar(currentPath, pageLoaderConfig)}
+      </div>
       {showLarryEntrance == true && (
         <TwitterWebLayoutTransition
           isActive={showLarryEntrance}

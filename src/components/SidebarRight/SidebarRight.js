@@ -1,86 +1,99 @@
+import { Fragment } from "react";
 import styles from "./SidebarRight.module.scss";
 import StaticItem from "../StaticItem";
 import SearchIcon from "../../images/search-icon.png";
 import Transition from "../Transition";
 
-const SidebarRight = ({ loaderStyle, showLarryEntrance }) => {
+const SidebarRight = ({
+  loaderStyle,
+  showLarryEntrance,
+  hideWhatsHappening,
+}) => {
+  const whatsHappeningDelay = hideWhatsHappening ? 0 : 7;
+
   return (
     <div className={styles.SidebarRight}>
       <div className={styles.wrapper}>
-        <Transition
-          isActive={showLarryEntrance}
-          animationConfiguration={loaderStyle}
-          entranceDelay={0 * loaderStyle.delayFactor}
-          component={"searchBar"}
-          entranceOnly={true}
-        >
-          <div className={styles.searchBar}>
-            <div className={styles.searchBarPill}>
-              <div className={styles.searchWrapper}>
-                <img className={styles.searchIcon} src={SearchIcon} />
-                <span className={`body ${styles.searchLabel}`}>
-                  Search Twitter
-                </span>
+        {!hideWhatsHappening && (
+          <Fragment>
+            <Transition
+              isActive={showLarryEntrance}
+              animationConfiguration={loaderStyle}
+              entranceDelay={0 * loaderStyle.delayFactor}
+              component={"searchBar"}
+              entranceOnly={true}
+            >
+              <div className={styles.searchBar}>
+                <div className={styles.searchBarPill}>
+                  <div className={styles.searchWrapper}>
+                    <img className={styles.searchIcon} src={SearchIcon} />
+                    <span className={`body ${styles.searchLabel}`}>
+                      Search Twitter
+                    </span>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </Transition>
-        <Transition
-          isActive={showLarryEntrance}
-          animationConfiguration={loaderStyle}
-          entranceDelay={1 * loaderStyle.delayFactor}
-          component={"whatsHappeningModule"}
-          entranceOnly={true}
-        >
-          <div className={styles.whatsHappeningModule}>
+            </Transition>
+
             <Transition
               isActive={showLarryEntrance}
               animationConfiguration={loaderStyle}
-              entranceDelay={1.5 * loaderStyle.delayFactor}
-              component={"whatsHappeningLabel"}
+              entranceDelay={1 * loaderStyle.delayFactor}
+              component={"whatsHappeningModule"}
               entranceOnly={true}
             >
-              <h1 className={`headline1 ${styles.whatsHappeningLabel}`}>
-                What's happening
-              </h1>
+              <div className={styles.whatsHappeningModule}>
+                <Transition
+                  isActive={showLarryEntrance}
+                  animationConfiguration={loaderStyle}
+                  entranceDelay={1.5 * loaderStyle.delayFactor}
+                  component={"whatsHappeningLabel"}
+                  entranceOnly={true}
+                >
+                  <h1 className={`headline1 ${styles.whatsHappeningLabel}`}>
+                    What's happening
+                  </h1>
+                </Transition>
+                <ul className={styles.whatsHappeningWrapper}>
+                  {[...Array(5)].map((e, i) => {
+                    return (
+                      <Transition
+                        key={`lil-${i}`}
+                        isActive={showLarryEntrance}
+                        animationConfiguration={loaderStyle}
+                        entranceDelay={(2 + i) * loaderStyle.delayFactor}
+                        hasSkeletalLoading={showLarryEntrance}
+                        entranceOnly={true}
+                      >
+                        <li className={styles.whatsHappeningItem}>
+                          <StaticItem
+                            src={
+                              "./images/sidebar-right/whats-happening/item-" +
+                              (i + 1)
+                            }
+                          />
+                        </li>
+                      </Transition>
+                    );
+                  })}
+                </ul>
+                <Transition
+                  isActive={showLarryEntrance}
+                  animationConfiguration={loaderStyle}
+                  entranceDelay={7 * loaderStyle.delayFactor}
+                  entranceOnly={true}
+                >
+                  <h4 className={`body ${styles.showMoreLabel}`}>Show more</h4>
+                </Transition>
+              </div>
             </Transition>
-            <ul className={styles.whatsHappeningWrapper}>
-              {[...Array(5)].map((e, i) => {
-                return (
-                  <Transition
-                    key={`lil-${i}`}
-                    isActive={showLarryEntrance}
-                    animationConfiguration={loaderStyle}
-                    entranceDelay={(2 + i) * loaderStyle.delayFactor}
-                    hasSkeletalLoading={showLarryEntrance}
-                    entranceOnly={true}
-                  >
-                    <li className={styles.whatsHappeningItem}>
-                      <StaticItem
-                        src={
-                          "./images/sidebar-right/whats-happening/item-" +
-                          (i + 1)
-                        }
-                      />
-                    </li>
-                  </Transition>
-                );
-              })}
-            </ul>
-            <Transition
-              isActive={showLarryEntrance}
-              animationConfiguration={loaderStyle}
-              entranceDelay={7 * loaderStyle.delayFactor}
-              entranceOnly={true}
-            >
-              <h4 className={`body ${styles.showMoreLabel}`}>Show more</h4>
-            </Transition>
-          </div>
-        </Transition>
+          </Fragment>
+        )}
+
         <Transition
           isActive={showLarryEntrance}
           animationConfiguration={loaderStyle}
-          entranceDelay={8 * loaderStyle.delayFactor}
+          entranceDelay={(1 + whatsHappeningDelay) * loaderStyle.delayFactor}
           component={"whoToFollowModule"}
           entranceOnly={true}
         >
@@ -88,7 +101,9 @@ const SidebarRight = ({ loaderStyle, showLarryEntrance }) => {
             <Transition
               isActive={showLarryEntrance}
               animationConfiguration={loaderStyle}
-              entranceDelay={8.5 * loaderStyle.delayFactor}
+              entranceDelay={
+                (1.5 + whatsHappeningDelay) * loaderStyle.delayFactor
+              }
               component={"whoToFollowLabel"}
               entranceOnly={true}
             >
@@ -101,10 +116,13 @@ const SidebarRight = ({ loaderStyle, showLarryEntrance }) => {
                     key={`lil-${i}`}
                     isActive={showLarryEntrance}
                     animationConfiguration={loaderStyle}
-                    entranceDelay={(9 + i) * loaderStyle.delayFactor}
+                    entranceDelay={
+                      (whatsHappeningDelay + 2 + i) * loaderStyle.delayFactor
+                    }
                     entranceOnly={true}
+                    hasSkeletalLoading={true}
                   >
-                    <li>
+                    <li className={styles.whoToFollowItem}>
                       <StaticItem
                         src={
                           "./images/sidebar-right/who-to-follow/account-" +

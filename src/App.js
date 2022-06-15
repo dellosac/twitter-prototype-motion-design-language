@@ -54,10 +54,13 @@ export default function App() {
     window.showLarryEntrance = false;
   }
 
+  const nextPath = location.pathname;
+
+
   return (
     <AuthProviderWrapper>
       <AnimatePresence>
-        <Routes location={location} key={location.pathname}>
+        <Routes location={location} key={nextPath}>
           <Route path="/test" element={<TestPickerLayout />}>
             <Route path="login" element={<LoginPage />} />
             <Route
@@ -81,6 +84,7 @@ export default function App() {
                   showLarryEntrance={showLarryEntrance}
                   pageLoaderConfig={currentPageLoaderConfig}
                   activeLottieOption={activeLottieOption}
+                  currentPath={nextPath}
                 />
               </RequireAuth>
             }

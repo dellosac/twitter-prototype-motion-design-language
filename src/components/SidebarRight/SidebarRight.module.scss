@@ -4,6 +4,7 @@
     width: 380px;
 
     .wrapper {
+        margin-top: 9px;
         padding-left: 20px;
         display: flex;
         flex-direction: column;
@@ -18,10 +19,11 @@
             position: fixed;
             min-width: 360px;
             min-height: 55px;
+            padding-top: 8px;
+            top: 0;
             background: white;
 
             .searchBarPill {
-                margin-top: 9px;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
@@ -93,6 +95,14 @@
                 padding: 0px 0px;
                 list-style-type: none;
                 line-height: 0px;
+
+                > div {
+                    box-shadow: 0px 0px 0px 10px #EFF3F4 inset;
+                }
+
+                .whoToFollowItem {
+                    background-color: #EFF3F4;
+                }
             }
         }
     }

@@ -8,6 +8,11 @@
   text-align: center;
 }
 
+.contentWrapper {
+  min-width: 982px;
+  display: flex;
+}
+
 .animateLarry {
   position: absolute;
   left: 0;

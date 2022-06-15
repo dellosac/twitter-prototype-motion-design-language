@@ -7,6 +7,7 @@ import styles from "./TestPickerLayout.module.scss";
 const TestPickerLayout = () => {
 
   sessionStorage.setItem("show_larry", 1);
+  sessionStorage.setItem("animate_right_bar", 1);
 
   return (
     <TestPickerPageTransition entranceDelay={0} exitDelay={0.2}>

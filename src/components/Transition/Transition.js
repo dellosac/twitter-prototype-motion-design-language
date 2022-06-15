@@ -23,7 +23,7 @@ const Transition = ({
   if (window.showLarryEntrance) entranceDelay += 1.3;
 
   if (hasSkeletalLoading && showGhosts) {
-    entranceDelay += 1.3;
+    entranceDelay += 0.3;
   }
 
   return entranceOnly && !isActive ? (
