@@ -1,7 +1,6 @@
 @import '../styles/variables.scss';
 
-.bookmarkPage {
-
+.explorePage {
     .pageHeader {
         padding: 0 16px;
         height: 56px;
@@ -33,9 +32,10 @@
         }
     }
 
-    .bookmarksWrapper {
+    .exploreWrapper {
+        margin: 0;
         padding: 0;
-        list-style-type: none; 
-        line-height: 0px;   
+        list-style-type: none;   
+        line-height: 0px; 
     }
 }

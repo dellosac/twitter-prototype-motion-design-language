@@ -15,14 +15,11 @@ const Transition = ({
 }) => {
   let a = JSON.parse(JSON.stringify(animationConfiguration));
 
-  if (component in CONFIG) {
+  if (component in CONFIG)
     for (let p in CONFIG[component])
       if (a.initial.hasOwnProperty(p)) a.initial[p] = a.initial[p] == 0 ? 1 : 0;
-  }
 
-  if (window.showLarryEntrance) {
-    entranceDelay += 1.3;
-  }
+  if (window.showLarryEntrance) entranceDelay += 1.3;
 
   return entranceOnly && !isActive ? (
     children
@@ -43,4 +40,5 @@ const Transition = ({
     </div>
   );
 };
+
 export default Transition;
