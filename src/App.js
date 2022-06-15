@@ -39,6 +39,8 @@ export default function App() {
   };
 
   const onPageLoaderSelectCallback = (option) => {
+    sessionStorage.setItem("show_ghosts", (option === CONFIG.PAGE_LOADER_OPTIONS.Ghost) ? 1 : 0);
+
     setPageLoaderOption(option);
   };
 

@@ -29,6 +29,7 @@ const NotificationsPage = ({ pageLoaderConfig, slug }) => {
                   isActive={true}
                   animationConfiguration={pageLoaderConfig}
                   entranceDelay={(1 + i) * pageLoaderConfig.delayFactor}
+                  hasSkeletalLoading={i > 0}
                 >
                   <li>
                     <StaticItem src={'./images/pages/notifications/notification-' + (i + 1)} />

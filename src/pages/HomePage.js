@@ -13,6 +13,7 @@ const HomePage = ({ pageLoaderConfig, slug }) => {
           isActive={true}
           animationConfiguration={pageLoaderConfig}
           entranceDelay={0 * pageLoaderConfig.delayFactor}
+          component={"latestTweets"}
         >
           <div className={styles.pageHeader}>
             <h1 className={`headline2 ${styles.pageLabel}`}>Latest Tweets</h1>
@@ -49,6 +50,7 @@ const HomePage = ({ pageLoaderConfig, slug }) => {
                   isActive={true}
                   animationConfiguration={pageLoaderConfig}
                   entranceDelay={(2 + i) * pageLoaderConfig.delayFactor}
+                  hasSkeletalLoading={true}
                 >
                   <li>
                     <StaticItem src={'./images/pages/home/tweet-' + (i + 1)} />

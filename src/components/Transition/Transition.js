@@ -14,6 +14,7 @@ const Transition = ({
   hasSkeletalLoading = false,
 }) => {
   let a = JSON.parse(JSON.stringify(animationConfiguration));
+  let showGhosts = parseInt(sessionStorage.getItem("show_ghosts"));
 
   if (component in CONFIG)
     for (let p in CONFIG[component])
@@ -21,10 +22,14 @@ const Transition = ({
 
   if (window.showLarryEntrance) entranceDelay += 1.3;
 
+  if (hasSkeletalLoading && showGhosts) {
+    entranceDelay += 1.3;
+  }
+
   return entranceOnly && !isActive ? (
     children
   ) : (
-    <div className={`transition-wrapper ${hasSkeletalLoading ? 'bones' : null}`}>
+    <div className={`transition-wrapper ${ hasSkeletalLoading && showGhosts ? 'bones' : 'loaded'}`}>
       <motion.div
         variants={a}
         initial="initial"
