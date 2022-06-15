@@ -19,6 +19,7 @@ const ExplorePage = ({ pageLoaderConfig, slug }) => {
                   isActive={true}
                   animationConfiguration={pageLoaderConfig}
                   entranceDelay={i * pageLoaderConfig.delayFactor}
+                  hasSkeletalLoading={i > 1}
                 >
                   <li>
                     <StaticItem src={'./images/pages/explore/explore-' + (i + 1)} />
