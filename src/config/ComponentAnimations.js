@@ -28,8 +28,11 @@ const COMPONENT_ANIMATIONS = {
   },
 //  Home:
   tweetComposer: {
-    opacity: false
+    opacity: false,
   },
+  latestTweets: {
+    translateY: false
+  }
 };
 
 export default COMPONENT_ANIMATIONS;

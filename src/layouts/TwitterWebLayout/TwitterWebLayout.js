@@ -3,17 +3,13 @@ import { Outlet } from "react-router-dom";
 import Lotties from "../../lotties";
 
 import TwitterWebLayoutTransition from "./TwitterWebLayoutTransition";
-import { Transition } from "../../components";
 import styles from "./TwitterWebLayout.module.scss";
-import { useResolvedPath, useMatch } from "react-router-dom";
 
 const TwitterWebLayout = ({
   pageLoaderConfig,
   activeLottieOption,
   showLarryEntrance = false,
 }) => {
-  let resolved = useResolvedPath("/");
-  let match = useMatch({ path: resolved.pathname, end: true });
 
   const onNavigationChange = (newNavSlug) => {
     console.log("navigation changed", newNavSlug);
