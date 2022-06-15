@@ -21,10 +21,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "npm run image_manifest; react-scripts start",
+    "build": "npm run image_manifest; react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "image_manifest": "node ./scripts/generateImageManifest.js",
     "static_site_sandbox": "yarn build; static-sites publish --sandbox --serve-missing-directories test ./build --max-file-count 200"
   },
   "eslintConfig": {
