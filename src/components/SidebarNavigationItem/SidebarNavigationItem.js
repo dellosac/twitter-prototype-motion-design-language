@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useResolvedPath, useMatch, Link } from "react-router-dom";
-import Lottie from "lottie-react";
+import { Player } from "@lottiefiles/react-lottie-player";
 import CONFIG from "../../config";
 
 import styles from "./SidebarNavigationItem.module.scss";
@@ -24,33 +24,41 @@ const SidebarNavigationItem = ({
       return;
     }
 
-    if (!match) {
-      lottieRef.current.goToAndPlay(0, true);
-    } else {
-      lottieRef.current.goToAndPlay(0, true);
-    }
+    lottieRef.current.stop();
+    lottieRef.current.play();
   };
 
   const _staticIcon = (name, isActive) => {
-    const imgSrc = isActive ? CONFIG.StaticIconSettings[name].active : CONFIG.StaticIconSettings[name].default;
+    const imgSrc = isActive
+      ? CONFIG.StaticIconSettings[name].active
+      : CONFIG.StaticIconSettings[name].default;
 
-    return <span className={styles.staticIcon}>
-      <img src={`./images/icons/${imgSrc}`} alt={name} />
-    </span>
-  }
+    return (
+      <span className={styles.staticIcon}>
+        <img src={`./images/icons/${imgSrc}`} alt={name} />
+      </span>
+    );
+  };
 
   return (
-    <li className={`${match ? styles.active : null} ${styles.sidebarListItem}`} onMouseEnter={onMouseEnter}>
+    <li
+      className={`${match ? styles.active : null} ${styles.sidebarListItem}`}
+      onMouseEnter={onMouseEnter}
+    >
       <Link className={styles.itemContainer} to={URL}>
         {animateIcon ? (
-          <Lottie
-            autoplay={false}
+          <Player
             className={styles.lottieIcon}
-            lottieRef={lottieRef}
+            ref={lottieRef} // set the ref to your class instance
+            autoplay={match}
             loop={false}
-            animationData={match ? activeAnimation : hoverAnimation}
-             />
-        ) : _staticIcon(name, match)}
+            controls={true}
+            keepLastFrame={match}
+            src={match ? activeAnimation : hoverAnimation}
+          />
+        ) : (
+          _staticIcon(name, match)
+        )}
         <span className={`headline1 ${styles.itemLabel}`}>{name}</span>
       </Link>
     </li>

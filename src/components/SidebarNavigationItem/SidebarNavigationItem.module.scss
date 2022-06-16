@@ -11,7 +11,8 @@
     text-decoration: none;
     color: #0f1419;
 
-    .lottieIcon {
+    // dynamically generated lottie contained (can't pass in specific classname)
+    > div {
       padding: 12px 12px 12px 6px;
       width: 36px;
       height: 36px;
