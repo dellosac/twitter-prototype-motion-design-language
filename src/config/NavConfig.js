@@ -14,9 +14,9 @@ const NAV_CONFIG = {
   Bookmarks: {
     height: 21,
   },
-  Lists: {
-    height: 21,
-  },
+  // Lists: {
+  //   height: 21,
+  // },
   Profile: {
     height: 21,
   }
