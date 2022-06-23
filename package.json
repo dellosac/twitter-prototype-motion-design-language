@@ -28,7 +28,7 @@
     "eject": "react-scripts eject",
     "production_test": "npm run image_manifest; react-scripts build; serve -s build -l 4000",
     "image_manifest": "node ./scripts/generateImageManifest.js",
-    "static_site_sandbox": "yarn build; static-sites publish --sandbox --serve-missing-directories test ./build --max-file-count 200"
+    "static_site_sandbox": "yarn build; static-sites publish --sandbox --serve-missing-directories test ./build --max-file-count 250"
   },
   "eslintConfig": {
     "extends": [
