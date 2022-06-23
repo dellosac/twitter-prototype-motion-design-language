@@ -40,7 +40,7 @@ const ProfilePage = ({ pageLoaderConfig, slug }) => {
           animationConfiguration={pageLoaderConfig}
           entranceDelay={5 * pageLoaderConfig.delayFactor}
         >
-          <div class={`subtext1 ${styles.editProfileBtn}`}>Edit profile</div>
+          <div className={`subtext1 ${styles.editProfileBtn}`}>Edit profile</div>
         </Transition>
         <div className={styles.copyLockup}>
           <Transition 
