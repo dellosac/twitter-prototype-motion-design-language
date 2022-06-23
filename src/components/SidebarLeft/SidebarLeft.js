@@ -12,6 +12,7 @@ const SidebarLeft = ({
   animateIcons,
   showLarryEntrance,
 }) => {
+
   const larryLogo = (
     <a href='./test/picker'>
       <span className={styles.logo}>
@@ -34,7 +35,6 @@ const SidebarLeft = ({
 
       <ul className={styles.SidebarNavigation}>
         {Object.keys(NavConfig).map((navItem, index) => {
-          console.log("navitem", navItem);
           const isActive = activeItem === navItem;
 
           return (

@@ -7,7 +7,6 @@ import styles from "./SidebarNavigationItem.module.scss";
 
 const SidebarNavigationItem = ({
   name,
-  config,
   hoverAnimation,
   activeAnimation,
   animateIcon,
@@ -21,6 +20,7 @@ const SidebarNavigationItem = ({
   const onMouseEnter = (e) => {
     e.preventDefault();
     if (!animateIcon) {
+      
       return;
     }
 
@@ -42,10 +42,10 @@ const SidebarNavigationItem = ({
 
   return (
     <li
-      className={`${match ? styles.active : null} ${styles.sidebarListItem}`}
+      className={`${match ? styles.active : null} ${styles.sidebarListItem} ${!animateIcon ? styles.non : null}`}
       onMouseEnter={onMouseEnter}
     >
-      <Link className={styles.itemContainer} to={URL}>
+      <Link to={URL}>
         {animateIcon ? (
           <Player
             className={styles.lottieIcon}
