@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import NavConfig from "../../config/NavConfig";
 import SidebarNavigationItem from "../SidebarNavigationItem";
 import styles from "./SidebarLeft.module.scss";
@@ -14,11 +15,11 @@ const SidebarLeft = ({
 }) => {
 
   const larryLogo = (
-    <a href='./test/picker'>
+    <Link to="/test/picker">
       <span className={styles.logo}>
         <Larry className={styles.larry} fill="#1D9BF0" />
       </span>
-    </a>
+    </Link>
   );
 
   return (
