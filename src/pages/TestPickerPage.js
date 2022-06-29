@@ -37,6 +37,7 @@ const TestPickerPage = ({
             actionOption={activeLottieOption}
             options={lottieOptions}
             onOptionSelectCallback={onLottieOptionSelectCallback}
+            letterMasks={['a', 'b', 'c', 'd']}
           />
         </section>
       </TestPickerTransition>
@@ -47,6 +48,7 @@ const TestPickerPage = ({
             actionOption={activePageLoaderOption}
             options={pageLoaderOptions}
             onOptionSelectCallback={onPagerLoaderOptionSelectCallback}
+            letterMasks={['w', 'x', 'y', 'z']}
           />
         </section>
       </TestPickerTransition>

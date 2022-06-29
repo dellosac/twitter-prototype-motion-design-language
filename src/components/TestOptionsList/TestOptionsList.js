@@ -1,6 +1,6 @@
 import styles from "./TestOptionsList.module.scss";
 
-const TestOptionsList = ({ actionOption, options, onOptionSelectCallback }) => {
+const TestOptionsList = ({ actionOption, options, onOptionSelectCallback, letterMasks }) => {
   return (
     <ul className={styles.TestOptionsList}>
       {options.map((option, index) => {
@@ -19,7 +19,7 @@ const TestOptionsList = ({ actionOption, options, onOptionSelectCallback }) => {
             }`}
             onClick={onClick}
           >
-            {firstLetter}
+            {letterMasks[index].toUpperCase()}
           </li>
         );
       })}
