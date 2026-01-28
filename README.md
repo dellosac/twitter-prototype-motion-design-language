@@ -1,3 +1,18 @@
+# Creative Systems: Motion Design Language Research
+
+In this UX research experiment, we're testing different motion design experiences for our users. We are have two different parameters with four options each we are testing:
+
+- Parameter 1: Lottie Options
+    - A: Ease
+    - B: Perspective
+    - C: Scale
+    - D: None (Control)
+- Parameter 2: Page Loader Options
+    - W: Position
+    - X: Scale
+    - Y: Ghost
+    - Z: None (Control)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
