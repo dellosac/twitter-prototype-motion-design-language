@@ -13,6 +13,8 @@ In this UX research experiment, we're testing different motion design experience
     - Y: Ghost
     - Z: None (Control)
 
+The password to access the demo is "larry".
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
