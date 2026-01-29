@@ -23,8 +23,8 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "start": "npm run image_manifest; react-scripts start; node server.js",
         "build": "npm run image_manifest; react-scripts build",
+        "start": "npm run image_manifest; node server.js",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "production_test": "npm run image_manifest; react-scripts build; serve -s build -l 4000",
