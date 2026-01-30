@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "description": "A proof of concept for Twitter with motion",
     "engines": {
-        "node": "16.x"
+        "node": ">=16.x"
     },
     "private": true,
     "dependencies": {
